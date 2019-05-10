@@ -8,14 +8,15 @@ uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls;
 
 type
+
+  { TForm1 }
+
   TForm1 = class(TForm)
-    Button1: TButton;
     Panel1: TPanel;
-    procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormPaint(Sender: TObject);
   private
     procedure DoOut(c: TCanvas; const s: string; x, y: integer);
-
   public
 
   end;
@@ -33,11 +34,6 @@ var
   Emoji: string = 'emoji<😀😃+😄😁>end';
 
 { TForm1 }
-
-procedure TForm1.Button1Click(Sender: TObject);
-begin
-  DoOut(Panel1.Canvas, Emoji, 10, 10);
-end;
 
 function IsCharSurrogate(ch: widechar): boolean;
 begin
@@ -111,7 +107,13 @@ procedure TForm1.FormCreate(Sender: TObject);
 begin
   caption:= Emoji;
   panel1.caption:= 'caption: '+Emoji;
+  font.name:= 'Courier New';
   panel1.font.name:= 'Courier New';
+end;
+
+procedure TForm1.FormPaint(Sender: TObject);
+begin
+  DoOut(Canvas, Emoji, 10, 10);
 end;
 
 end.
