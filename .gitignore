@@ -1,0 +1,6 @@
+lib/
+demo
+project1
+*.lps
+*.dbg
+*.ico

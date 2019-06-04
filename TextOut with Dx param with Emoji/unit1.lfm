@@ -1,0 +1,28 @@
+object Form1: TForm1
+  Left = 389
+  Height = 282
+  Top = 155
+  Width = 505
+  Caption = 'Form1'
+  ClientHeight = 282
+  ClientWidth = 505
+  OnCreate = FormCreate
+  LCLVersion = '2.1.0.0'
+  object Button1: TButton
+    Left = 15
+    Height = 25
+    Top = 214
+    Width = 113
+    Caption = 'paint emojis'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Panel1: TPanel
+    Left = 8
+    Height = 160
+    Top = 8
+    Width = 373
+    Caption = 'Panel1'
+    TabOrder = 1
+  end
+end
