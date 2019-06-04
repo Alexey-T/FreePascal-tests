@@ -79,6 +79,8 @@ var
   r: TRect;
   cell: integer;
 begin
+  c.Brush.Color:= clMoneyGreen;
+
   sw:= UTF8Decode(s);
   cell:= c.TextWidth('2');
 
@@ -94,9 +96,9 @@ begin
 
   _CalcCharSizesUtf8FromWidestring(sw, dx, dx2);
 
-  r:= rect(0, 0, 500, 500);
-  ExtTextOut(c.Handle, x, y, ETO_OPAQUE or ETO_CLIPPED,
-    @r,
+  r:= rect(0, 0, 500, 60);
+  ExtTextOut(c.Handle, x, y, ETO_OPAQUE,
+    nil,
     PChar(s),
     Length(s),
     @dx2[0]
@@ -113,7 +115,8 @@ end;
 
 procedure TForm1.FormPaint(Sender: TObject);
 begin
-  DoOut(Canvas, Emoji, 10, 10);
+  DoOut(Canvas, 'norm', 10, 10);
+  DoOut(Canvas, Emoji, 70, 10);
 end;
 
 end.
