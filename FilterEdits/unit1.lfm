@@ -1,0 +1,109 @@
+object Form1: TForm1
+  Left = 376
+  Height = 391
+  Top = 139
+  Width = 848
+  ActiveControl = TreeFilterEdit1
+  Caption = 'Form1'
+  ClientHeight = 391
+  ClientWidth = 848
+  LCLVersion = '2.1.0.0'
+  object TreeView1: TTreeView
+    Left = 15
+    Height = 208
+    Top = 48
+    Width = 281
+    TabOrder = 0
+    Items.Data = {
+      F9FFFFFF020004000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF050000000000
+      00000103000000727272FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000
+      0000000400000061616262FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000000000
+      0000000006000000624141414343FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000
+      000000000000000700000063632061616163FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFF00000000000000000006000000646464206262FFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFF000000000000000000050000006262626565FFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFF0000000000000000000700000062626161616363FFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFF0000000000000000000700000064646464656565FF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000000000000000000800000063636341
+      41424242
+    }
+  end
+  object TreeFilterEdit1: TTreeFilterEdit
+    Left = 15
+    Height = 32
+    Top = 8
+    Width = 281
+    CharCase = ecNormal
+    ButtonWidth = 23
+    Font.Height = -19
+    Font.Name = 'Ubuntu'
+    NumGlyphs = 1
+    MaxLength = 0
+    ParentFont = False
+    TabOrder = 1
+    FilteredTreeview = TreeView1
+  end
+  object ListFilterEdit1: TListFilterEdit
+    Left = 304
+    Height = 27
+    Top = 19
+    Width = 184
+    CharCase = ecNormal
+    FilterOptions = [fsoCaseSensitive]
+    ButtonWidth = 23
+    NumGlyphs = 1
+    MaxLength = 0
+    TabOrder = 2
+    FilteredListbox = ListBox1
+  end
+  object ListBox1: TListBox
+    Left = 307
+    Height = 204
+    Top = 52
+    Width = 181
+    Items.Strings = (
+      'bbCC'
+      'bbAACC'
+      'BBBaaa'
+      'bbbAAA'
+      'C'
+      'B'
+      'A'
+      'c'
+      'b'
+      'a'
+    )
+    ItemHeight = 23
+    OnClick = ListBox1Click
+    ScrollWidth = 166
+    TabOrder = 3
+  end
+  object ListView1: TListView
+    Left = 499
+    Height = 197
+    Top = 59
+    Width = 255
+    Columns = <>
+    Items.LazData = {
+      9800000006000000FFFFFFFFFFFFFFFFFFFFFFFF000000000500000062626363
+      63FFFFFFFFFFFFFFFFFFFFFFFF0000000006000000424242434343FFFFFFFFFF
+      FFFFFFFFFFFFFF00000000050000004141626262FFFFFFFFFFFFFFFFFFFFFFFF
+      0000000006000000616161424242FFFFFFFFFFFFFFFFFFFFFFFF000000000100
+      000061FFFFFFFFFFFFFFFFFFFFFFFF000000000100000041
+    }
+    TabOrder = 4
+  end
+  object ListViewFilterEdit1: TListViewFilterEdit
+    Left = 499
+    Height = 27
+    Top = 19
+    Width = 255
+    CharCase = ecNormal
+    FilterOptions = [fsoCaseSensitive]
+    ButtonWidth = 23
+    NumGlyphs = 1
+    MaxLength = 0
+    TabOrder = 5
+    FilteredListview = ListView1
+  end
+end

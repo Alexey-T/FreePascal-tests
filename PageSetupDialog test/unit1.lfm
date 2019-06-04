@@ -1,0 +1,69 @@
+object Form1: TForm1
+  Left = 348
+  Height = 264
+  Top = 148
+  Width = 345
+  Caption = 'Form1'
+  ClientHeight = 264
+  ClientWidth = 345
+  LCLVersion = '1.9.0.0'
+  object Button1: TButton
+    Left = 56
+    Height = 26
+    Top = 168
+    Width = 80
+    AutoSize = True
+    Caption = 'page setup'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object chkMm: TCheckBox
+    Left = 160
+    Height = 24
+    Top = 170
+    Width = 50
+    Caption = 'mm'
+    Checked = True
+    State = cbChecked
+    TabOrder = 1
+  end
+  object Edit1: TEdit
+    Left = 240
+    Height = 24
+    Top = 191
+    Width = 80
+    TabOrder = 2
+    Text = 'Edit1'
+  end
+  object Edit2: TEdit
+    Left = 238
+    Height = 24
+    Top = 219
+    Width = 80
+    TabOrder = 3
+    Text = 'Edit2'
+  end
+  object FloatSpinEdit1: TFloatSpinEdit
+    Left = 243
+    Height = 24
+    Top = 157
+    Width = 50
+    Increment = 1
+    MaxValue = 100
+    MinValue = 0
+    TabOrder = 4
+    Value = 0
+  end
+  object PageSetupDialog1: TPageSetupDialog
+    PageWidth = 210
+    PageHeight = 297
+    MarginLeft = 2000
+    MarginTop = 1000
+    MarginRight = 1400
+    MarginBottom = 1000
+    MinMarginTop = 5000
+    Options = [psoDefaultMinMargins, psoMinMargins]
+    left = 144
+    top = 64
+  end
+end

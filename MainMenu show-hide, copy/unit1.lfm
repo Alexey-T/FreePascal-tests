@@ -1,0 +1,55 @@
+object Form1: TForm1
+  Left = 603
+  Height = 295
+  Top = 157
+  Width = 639
+  Caption = 'Form1'
+  ClientHeight = 272
+  ClientWidth = 639
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '2.1.0.0'
+  object bToggle: TButton
+    Left = 40
+    Height = 25
+    Top = 80
+    Width = 164
+    Caption = 'show/hide main menu'
+    OnClick = bToggleClick
+    TabOrder = 0
+  end
+  object bShowMenu: TButton
+    Left = 40
+    Height = 25
+    Top = 112
+    Width = 160
+    Caption = 'show menu copy'
+    OnClick = bShowMenuClick
+    TabOrder = 1
+  end
+  object MainMenu1: TMainMenu
+    Left = 160
+    Top = 16
+    object MenuItem1: TMenuItem
+      Caption = '&File'
+      object MenuItem4: TMenuItem
+        Caption = 'open...'
+        ShortCut = 16463
+        OnClick = MenuItem4Click
+      end
+      object MenuItem5: TMenuItem
+        Caption = 'save...'
+        ShortCut = 16467
+        OnClick = MenuItem5Click
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = '&Edit'
+      object MenuItem3: TMenuItem
+        Caption = 'dlg'
+        ShortCut = 16454
+        OnClick = MenuItem3Click
+      end
+    end
+  end
+end
