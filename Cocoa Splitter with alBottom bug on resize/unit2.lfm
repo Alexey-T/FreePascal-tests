@@ -1,0 +1,22 @@
+object Form2: TForm2
+  Left = 653
+  Height = 240
+  Top = 228
+  Width = 320
+  Caption = 'Form2'
+  ClientHeight = 240
+  ClientWidth = 320
+  LCLVersion = '2.1.0.0'
+  object Panel3: TPanel
+    Left = 10
+    Height = 220
+    Top = 10
+    Width = 300
+    Align = alClient
+    BorderSpacing.Around = 10
+    Caption = 'Panel3'
+    Color = clTeal
+    ParentColor = False
+    TabOrder = 0
+  end
+end

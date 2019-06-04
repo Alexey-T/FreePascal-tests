@@ -1,0 +1,43 @@
+object Form1: TForm1
+  Left = 302
+  Height = 269
+  Top = 251
+  Width = 529
+  Caption = 'Form1'
+  ClientHeight = 269
+  ClientWidth = 529
+  OnCreate = FormCreate
+  LCLVersion = '2.1.0.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 80
+    Top = 189
+    Width = 529
+    Align = alBottom
+    Caption = 'Panel1'
+    Color = clPurple
+    ParentColor = False
+    TabOrder = 0
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 184
+    Top = 0
+    Width = 529
+    Align = alClient
+    Caption = 'Panel2'
+    Color = clOlive
+    ParentColor = False
+    TabOrder = 1
+  end
+  object Splitter1: TSplitter
+    Cursor = crVSplit
+    Left = 0
+    Height = 5
+    Top = 184
+    Width = 529
+    Align = alBottom
+    ResizeAnchor = akBottom
+    ResizeStyle = rsPattern
+  end
+end
