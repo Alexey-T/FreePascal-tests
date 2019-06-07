@@ -1,0 +1,10 @@
+object Form1: TForm1
+  Left = 1883
+  Height = 240
+  Top = 267
+  Width = 320
+  Caption = 'TextOut with Orientation'
+  OnPaint = FormPaint
+  Position = poScreenCenter
+  LCLVersion = '2.1.0.0'
+end
