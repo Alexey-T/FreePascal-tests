@@ -1,11 +1,12 @@
 object Form1: TForm1
-  Left = 428
-  Height = 294
-  Top = 130
+  Left = 389
+  Height = 405
+  Top = 109
   Width = 518
   Caption = 'Test for clipboard vertical block'
-  ClientHeight = 294
+  ClientHeight = 405
   ClientWidth = 518
+  OnCreate = FormCreate
   Position = poScreenCenter
   LCLVersion = '2.1.0.0'
   object Memo1: TMemo
@@ -24,9 +25,10 @@ object Form1: TForm1
   end
   object ButtonCopy: TButton
     Left = 9
-    Height = 25
+    Height = 20
     Top = 172
-    Width = 217
+    Width = 98
+    AutoSize = True
     Caption = 'copy to clp'
     OnClick = ButtonCopyClick
     TabOrder = 1

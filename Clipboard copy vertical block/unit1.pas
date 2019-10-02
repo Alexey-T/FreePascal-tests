@@ -5,7 +5,7 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ComCtrls;
 
 type
 
@@ -15,6 +15,7 @@ type
     ButtonCopy: TButton;
     Memo1: TMemo;
     procedure ButtonCopyClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
 
   public
@@ -26,7 +27,7 @@ var
 
 implementation
 
-uses Clipbrd;
+uses Clipbrd, InterfaceBase;
 
 {$R *.lfm}
 
@@ -43,6 +44,11 @@ begin
     cATClipboardFormatId,
     cATClipboardSignatureColBlock,
     SizeOf(cATClipboardSignatureColBlock));
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  caption:= 'Widgetset: '+GetLCLWidgetTypeName;
 end;
 
 
