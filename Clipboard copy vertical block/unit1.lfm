@@ -1,0 +1,34 @@
+object Form1: TForm1
+  Left = 428
+  Height = 294
+  Top = 130
+  Width = 518
+  Caption = 'Test for clipboard vertical block'
+  ClientHeight = 294
+  ClientWidth = 518
+  Position = poScreenCenter
+  LCLVersion = '2.1.0.0'
+  object Memo1: TMemo
+    Left = 9
+    Height = 162
+    Top = 7
+    Width = 391
+    Lines.Strings = (
+      'test1'
+      'test2'
+      ''
+      'test3'
+      'end.'
+    )
+    TabOrder = 0
+  end
+  object ButtonCopy: TButton
+    Left = 9
+    Height = 25
+    Top = 172
+    Width = 217
+    Caption = 'copy to clp'
+    OnClick = ButtonCopyClick
+    TabOrder = 1
+  end
+end
