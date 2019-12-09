@@ -122,6 +122,7 @@ var
   i: integer;
 begin
   c:= b.canvas;
+  c.AntialiasingMode:= amOn;
   c.Brush.Color:= clMoneyGreen;
   c.FillRect(0, 0, b.Width, b.Height);
 
