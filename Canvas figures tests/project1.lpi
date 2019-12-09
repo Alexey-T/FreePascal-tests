@@ -74,10 +74,13 @@
     <RunParams>
       <FormatVersion Value="2"/>
     </RunParams>
-    <RequiredPackages>
-      <Item>
+    <RequiredPackages Count="2">
+      <Item1>
         <PackageName Value="LCL"/>
-      </Item>
+      </Item1>
+      <Item2>
+        <PackageName Value="LCLBase"/>
+      </Item2>
     </RequiredPackages>
     <Units>
       <Unit>
