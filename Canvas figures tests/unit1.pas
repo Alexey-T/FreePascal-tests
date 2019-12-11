@@ -5,20 +5,33 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls;
+
+type
+  TATMissedPoint = (
+    ampnTopLeft,
+    ampnTopRight,
+    ampnBottomLeft,
+    ampnBottomRight
+    );
 
 type
 
   { TForm1 }
 
   TForm1 = class(TForm)
+    chkShowBorder: TCheckBox;
     ImageList1: TImageList;
     ImageList2: TImageList;
     Panel1: TPanel;
+    procedure chkShowBorderChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Panel1Paint(Sender: TObject);
   private
     b, b0: TBitmap;
+    procedure DrawTriangleRectFramed(C: TCanvas; AX, AY, ASizeX, ASizeY,
+      AScale: integer; ATriKind: TATMissedPoint; AColorFill,
+      AColorLine: TColor; bmp: TBitmap);
     procedure PaintBitmap;
 
   public
@@ -47,13 +60,10 @@ begin
   b0:= TBitmap.Create;
 end;
 
-type
-  TATMissedPoint = (
-    ampnTopLeft,
-    ampnTopRight,
-    ampnBottomLeft,
-    ampnBottomRight
-    );
+procedure TForm1.chkShowBorderChange(Sender: TObject);
+begin
+  Panel1.Invalidate;
+end;
 
 procedure CanvasStretchDraw(C: TCanvas; const R: TRect; Bmp: TBitmap); {$ifdef fpc}inline;{$endif}
 begin
@@ -68,22 +78,22 @@ begin
   {$endif}
 end;
 
-procedure DrawTriangleRectFramed(C: TCanvas;
+procedure TForm1.DrawTriangleRectFramed(C: TCanvas;
   AX, AY, ASizeX, ASizeY, AScale: integer;
   ATriKind: TATMissedPoint;
   AColorFill, AColorLine: TColor;
-  b: TBitmap);
+  bmp: TBitmap);
 var
   p0, p1, p2, p3: TPoint;
   line1, line2: TPoint;
   ar: array[0..2] of TPoint;
 begin
-    b.SetSize(ASizeX*AScale, ASizeY*AScale);
+    bmp.SetSize(ASizeX*AScale, ASizeY*AScale);
 
     p0:= Point(0, 0);
-    p1:= Point(b.Width, 0);
-    p2:= Point(0, b.Height);
-    p3:= Point(b.Width, b.Height);
+    p1:= Point(bmp.Width, 0);
+    p2:= Point(0, bmp.Height);
+    p3:= Point(bmp.Width, bmp.Height);
 
     case ATriKind of
       ampnTopLeft: begin ar[0]:= p1; ar[1]:= p2; ar[2]:= p3; line1:= p1; line2:= p2; end;
@@ -92,26 +102,30 @@ begin
       ampnBottomRight: begin ar[0]:= p0; ar[1]:= p1; ar[2]:= p2; line1:= p1; line2:= p2; end;
     end;
 
-    //b.Canvas.Brush.Color:= AColorBG;
-    //b.Canvas.FillRect(0, 0, b.Width, b.Height);
-    b.Canvas.CopyRect(
-      Rect(0, 0, b.Width, b.Height),
+    //bmp.Canvas.Brush.Color:= AColorBG;
+    //bmp.Canvas.FillRect(0, 0, bmp.Width, bmp.Height);
+    bmp.Canvas.CopyRect(
+      Rect(0, 0, bmp.Width, bmp.Height),
       C,
       Rect(AX, AY, AX+ASizeX, AY+ASizeY)
       );
 
-    b.Canvas.Pen.Style:= psClear;
-    b.Canvas.Brush.Color:= AColorFill;
-    b.Canvas.Polygon(ar);
-    b.Canvas.Pen.Style:= psSolid;
+    bmp.Canvas.Pen.Style:= psClear;
+    bmp.Canvas.Brush.Color:= AColorFill;
+    bmp.Canvas.Polygon(ar);
 
-    b.Canvas.Pen.Color:= AColorLine;
-    b.Canvas.Pen.Width:= AScale;
-    b.Canvas.MoveTo(line1.X, line1.Y);
-    b.Canvas.LineTo(line2.X, line2.Y);
-    b.Canvas.Pen.Width:= 1;
+    if chkShowBorder.Checked then
+      bmp.Canvas.Pen.Style:= psSolid
+    else
+      bmp.Canvas.Pen.Style:= psClear;
 
-    CanvasStretchDraw(C, Rect(AX, AY, AX+ASizeX, AY+ASizeY), b);
+    bmp.Canvas.Pen.Color:= AColorLine;
+    bmp.Canvas.Pen.Width:= AScale;
+    bmp.Canvas.MoveTo(line1.X, line1.Y);
+    bmp.Canvas.LineTo(line2.X, line2.Y);
+    bmp.Canvas.Pen.Width:= 1;
+
+    CanvasStretchDraw(C, Rect(AX, AY, AX+ASizeX, AY+ASizeY), bmp);
 end;
 
 procedure TForm1.PaintBitmap;
@@ -174,6 +188,11 @@ begin
     clPurple,
     b0
     );
+
+  if chkShowBorder.Checked then
+    c.Pen.Style:= psSolid
+  else
+    c.Pen.Style:= psClear;
 
   c.Font.Color:= clPurple;
   c.Font.Size:= 8;

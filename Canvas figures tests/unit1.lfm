@@ -14,10 +14,23 @@ object Form1: TForm1
     Top = 8
     Width = 408
     Caption = 'Panel1'
+    ClientHeight = 400
+    ClientWidth = 408
     Color = clMoneyGreen
     ParentColor = False
     TabOrder = 0
     OnPaint = Panel1Paint
+    object chkShowBorder: TCheckBox
+      Left = 8
+      Height = 24
+      Top = 376
+      Width = 280
+      Caption = 'Pen.Style=psSolid (otherwise psClear)'
+      Checked = True
+      OnChange = chkShowBorderChange
+      State = cbChecked
+      TabOrder = 0
+    end
   end
   object ImageList1: TImageList
     Left = 224
