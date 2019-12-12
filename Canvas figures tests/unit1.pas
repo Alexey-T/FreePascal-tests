@@ -197,6 +197,7 @@ begin
   c.Font.Color:= clPurple;
   c.Font.Size:= 8;
 
+
   c.Brush.Style:= bsSolid;
   c.Brush.Color:= clYellow;
   c.Pen.Color:= clPurple;
@@ -208,6 +209,7 @@ begin
   c.Rectangle(140, 100, 180, 140);
   c.TextOut(130, 80, 'Rect empty');
 
+
   c.Brush.Color:= clYellow;
   c.Pen.Color:= clPurple;
   c.FillRect(190, 100, 230, 140);
@@ -216,7 +218,20 @@ begin
   c.Brush.Color:= clYellow;
   c.Pen.Color:= clPurple;
   c.FrameRect(240, 100, 280, 140);
-  c.TextOut(240, 80, 'FrameRect');
+  c.TextOut(240, 80, 'FrmRect');
+
+
+  c.Brush.Style:= bsSolid;
+  c.Brush.Color:= clYellow;
+  c.Pen.Color:= clPurple;
+  c.RoundRect(90+200, 100, 130+200, 140, 10, 10);
+  c.TextOut(90+200, 80, 'RndRect');
+
+  c.Brush.Style:= bsClear;
+  c.Pen.Color:= clPurple;
+  c.RoundRect(90+250, 100, 130+250, 140, 10, 10);
+  c.TextOut(90+250, 80, 'RndRect em');
+
 
   c.Brush.Color:= clYellow;
   c.Brush.Style:= bsSolid;
@@ -232,6 +247,7 @@ begin
   c.TextOut(130, 140, 'Ellipse empty');
   c.Brush.Style:= bsSolid;
 
+
   c.Brush.Color:= clYellow;
   c.Pen.Color:= clPurple;
   c.Polygon([Point(90, 220), Point(130, 230), Point(110, 255)]);
@@ -242,6 +258,17 @@ begin
   c.Polygon([Point(90+50, 220), Point(130+50, 230), Point(110+50, 255)]);
   c.TextOut(90+50, 200, 'Poly empty');
   c.Brush.Style:= bsSolid;
+
+
+  C.Pen.Color:= clRed;
+  C.Polyline([Point(35,80+100),Point(45,80+100),Point(55,80+100),Point(55,90+100),
+            Point(55,90+100),Point(55,100+100),Point(35,90+100),Point(35,100+100)]);
+
+  C.Pen.Color:= clGreen;
+  C.PolyBezier([Point(35,80+150),Point(45,80+150),Point(55,80+150),Point(55,90+150),
+              Point(55,90+150),Point(55,100+150),Point(35,90+150),Point(35,100+150)],
+              false,false);
+
 
   c.Pen.Color:= clBlue;
   for i:= 0 to 6 do
