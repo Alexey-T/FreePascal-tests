@@ -267,8 +267,10 @@ begin
   C.Pen.Color:= clGreen;
   C.PolyBezier([Point(35,80+150),Point(45,80+150),Point(55,80+150),Point(55,90+150),
               Point(55,90+150),Point(55,100+150),Point(35,90+150),Point(35,100+150)],
-              false,false);
-
+              false, false);
+  C.PolyBezier([Point(35,80+150+40),Point(45,80+150+40),Point(55,80+150+40),Point(55,90+150+40),
+              Point(55,90+150+40),Point(55,100+150+40),Point(35,90+150+40),Point(35,100+150+40)],
+              true, false);
 
   c.Pen.Color:= clBlue;
   for i:= 0 to 6 do
