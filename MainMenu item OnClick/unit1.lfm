@@ -1,0 +1,48 @@
+object Form1: TForm1
+  Left = 1615
+  Height = 240
+  Top = 205
+  Width = 320
+  Caption = 'Form1'
+  Menu = MainMenu1
+  LCLVersion = '2.1.0.0'
+  object MainMenu1: TMainMenu
+    Left = 56
+    Top = 19
+    object MenuItem1: TMenuItem
+      Caption = '&ff'
+      OnClick = MenuItem1Click
+      object MenuItem3: TMenuItem
+        Caption = 'MenuItem3'
+      end
+      object MenuItem4: TMenuItem
+        Caption = 'MenuItem4'
+      end
+      object MenuItem5: TMenuItem
+        Caption = 'MenuItem5'
+      end
+      object MenuItem6: TMenuItem
+        Caption = 'MenuItem6'
+      end
+      object MenuItem7: TMenuItem
+        Caption = 'MenuItem7'
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = '&dd'
+      OnClick = MenuItem2Click
+      object MenuItem8: TMenuItem
+        Caption = 'MenuItem8'
+      end
+      object MenuItem9: TMenuItem
+        Caption = 'MenuItem9'
+      end
+      object MenuItem10: TMenuItem
+        Caption = 'MenuItem10'
+      end
+      object MenuItem11: TMenuItem
+        Caption = 'MenuItem11'
+      end
+    end
+  end
+end
