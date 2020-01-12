@@ -38,12 +38,11 @@ var
   t: qword;
 begin
   f:= TForm2.Create(Self);
-  //f.EdCount:= SpinEdit1.Value;
-  f.ListCount:= SpinEdit1.Value;
+  f.CtlCount:= SpinEdit1.Value;
   t:= GetTickCount64;
   f.Show;
   t:= (GetTickCount64-t) div SpinEdit1.Value;
-  caption:= 'time: '+inttostr(t)+' ms per editor';
+  caption:= 'time: '+inttostr(t)+' ms per control';
 end;
 
 end.

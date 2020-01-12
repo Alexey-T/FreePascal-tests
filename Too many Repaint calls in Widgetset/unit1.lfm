@@ -23,6 +23,6 @@ object Form1: TForm1
     Top = 16
     Width = 67
     TabOrder = 1
-    Value = 1
+    Value = 3
   end
 end
