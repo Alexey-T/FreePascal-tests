@@ -11,15 +11,15 @@
       <XPManifest>
         <DpiAware Value="True"/>
       </XPManifest>
+      <Icon Value="0"/>
     </General>
     <MacroValues Count="1">
-      <Macro2 Name="LCLWidgetType" Value="qt5"/>
+      <Macro1 Name="LCLWidgetType" Value="gtk3"/>
     </MacroValues>
     <BuildModes>
       <Item Name="Default" Default="True"/>
-      <SharedMatrixOptions Count="2">
-        <Item1 ID="838338279801" Type="IDEMacro" MacroName="LCLWidgetType" Value="qt"/>
-        <Item2 ID="287756742960" Modes="Default" Type="IDEMacro" MacroName="LCLWidgetType" Value="qt5"/>
+      <SharedMatrixOptions Count="1">
+        <Item1 ID="837561558767" Modes="Default" Type="IDEMacro" MacroName="LCLWidgetType" Value="gtk3"/>
       </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>
@@ -46,14 +46,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-      </Unit>
-      <Unit>
-        <Filename Value="unit2.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form2"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="Unit2"/>
       </Unit>
     </Units>
   </ProjectOptions>
