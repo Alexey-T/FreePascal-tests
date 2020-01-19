@@ -14,12 +14,14 @@
       <Icon Value="0"/>
     </General>
     <MacroValues Count="1">
-      <Macro1 Name="LCLWidgetType" Value="gtk3"/>
+      <Macro3 Name="LCLWidgetType" Value="qt5"/>
     </MacroValues>
     <BuildModes>
       <Item Name="Default" Default="True"/>
-      <SharedMatrixOptions Count="1">
-        <Item1 ID="837561558767" Modes="Default" Type="IDEMacro" MacroName="LCLWidgetType" Value="gtk3"/>
+      <SharedMatrixOptions Count="3">
+        <Item1 ID="837561558767" Type="IDEMacro" MacroName="LCLWidgetType" Value="gtk3"/>
+        <Item2 ID="096518446734" Type="IDEMacro" MacroName="LCLWidgetType" Value="qt"/>
+        <Item3 ID="463984682487" Modes="Default" Type="IDEMacro" MacroName="LCLWidgetType" Value="qt5"/>
       </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>
