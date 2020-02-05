@@ -1,0 +1,27 @@
+object Form1: TForm1
+  Left = 277
+  Height = 343
+  Top = 250
+  Width = 522
+  Caption = 'Font.Orientation test'
+  ClientHeight = 343
+  ClientWidth = 522
+  LCLVersion = '2.1.0.0'
+  object PaintBox1: TPaintBox
+    Left = 8
+    Height = 288
+    Top = 8
+    Width = 416
+    OnPaint = PaintBox1Paint
+  end
+  object SpinEdit1: TSpinEdit
+    Left = 8
+    Height = 27
+    Top = 304
+    Width = 125
+    MaxValue = 180
+    MinValue = -180
+    OnChange = SpinEdit1Change
+    TabOrder = 0
+  end
+end
