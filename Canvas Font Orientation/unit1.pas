@@ -37,7 +37,10 @@ begin
   cnv:=PaintBox1.Canvas;
   cnv.Font.Color:= clGreen;
   cnv.Font.Orientation:= val*10;
-  cnv.Font.Style:= [fsItalic];
+  if val>=0 then
+    cnv.Font.Style:= []
+  else
+    cnv.Font.Style:= [fsItalic];
   cnv.TextOut(200,100,'Hello World!');
 end;
 

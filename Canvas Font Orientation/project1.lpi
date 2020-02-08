@@ -11,8 +11,10 @@
       <XPManifest>
         <DpiAware Value="True"/>
       </XPManifest>
-      <Icon Value="0"/>
     </General>
+    <MacroValues Count="1">
+      <Macro2 Name="LCLWidgetType" Value="cocoa"/>
+    </MacroValues>
     <BuildModes>
       <Item Name="Default" Default="True"/>
       <Item Name="Debug">
@@ -83,8 +85,9 @@
           </Linking>
         </CompilerOptions>
       </Item>
-      <SharedMatrixOptions Count="1">
+      <SharedMatrixOptions Count="2">
         <Item1 ID="301100984254" Type="IDEMacro" MacroName="LCLWidgetType" Value="gtk3"/>
+        <Item2 ID="176298040478" Modes="Default" Type="IDEMacro" MacroName="LCLWidgetType" Value="cocoa"/>
       </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>

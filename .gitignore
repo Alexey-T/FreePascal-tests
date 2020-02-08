@@ -1,6 +1,9 @@
 lib/
+backup/
 demo
 project1
 *.lps
 *.dbg
 *.ico
+*.app
+*.dSYM

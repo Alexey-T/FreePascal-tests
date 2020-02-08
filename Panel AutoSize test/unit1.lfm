@@ -1,0 +1,41 @@
+object Form1: TForm1
+  Left = 310
+  Height = 499
+  Top = 146
+  Width = 510
+  Caption = 'Form1'
+  ClientHeight = 499
+  ClientWidth = 510
+  Color = clMoneyGreen
+  LCLVersion = '2.1.0.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 499
+    Top = 0
+    Width = 170
+    Align = alLeft
+    AutoSize = True
+    BevelOuter = bvNone
+    Caption = 'Panel1'
+    ClientHeight = 499
+    ClientWidth = 170
+    Color = clSkyBlue
+    ParentColor = False
+    TabOrder = 0
+    object ListBox1: TListBox
+      Left = 0
+      Height = 499
+      Top = 0
+      Width = 56
+      Align = alLeft
+      Items.Strings = (
+        'aa'
+        'bb'
+        'dd'
+        'ee'
+      )
+      ItemHeight = 16
+      TabOrder = 0
+    end
+  end
+end
