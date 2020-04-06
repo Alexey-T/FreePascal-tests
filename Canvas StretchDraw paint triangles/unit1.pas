@@ -12,8 +12,7 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-    Button1: TButton;
-    procedure Button1Click(Sender: TObject);
+    procedure FormPaint(Sender: TObject);
   private
 
   public
@@ -74,7 +73,7 @@ begin
   end;
 end;
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TForm1.FormPaint(Sender: TObject);
 const
   cBg = clGray;
   cFill = clLtGray;
