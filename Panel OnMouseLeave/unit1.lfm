@@ -1,21 +1,9 @@
 object Form1: TForm1
   Left = 270
-  Height = 240
+  Height = 302
   Top = 245
-  Width = 416
-  Caption = 'Form1'
-  ClientHeight = 240
-  ClientWidth = 416
+  Width = 589
+  Caption = 'click to show panel2, MouseLeave to hide'
+  OnCreate = FormCreate
   LCLVersion = '2.1.0.0'
-  object Panel1: TPanel
-    Left = 37
-    Height = 136
-    Top = 32
-    Width = 369
-    Caption = 'click to show red panel, MouseLeave to hide it'
-    Color = clAqua
-    ParentColor = False
-    TabOrder = 0
-    OnClick = Panel1Click
-  end
 end

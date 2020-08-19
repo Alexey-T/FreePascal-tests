@@ -14,9 +14,9 @@
     </General>
     <BuildModes>
       <Item Name="Default" Default="True"/>
-      <Item Name="macos">
+      <Item Name="gtk3">
         <MacroValues Count="1">
-          <Macro1 Name="LCLWidgetType" Value="cocoa"/>
+          <Macro1 Name="LCLWidgetType" Value="gtk3"/>
         </MacroValues>
         <CompilerOptions>
           <Version Value="11"/>
@@ -27,10 +27,6 @@
             <IncludeFiles Value="$(ProjOutDir)"/>
             <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
-          <CodeGeneration>
-            <TargetCPU Value="x86_64"/>
-            <TargetOS Value="darwin"/>
-          </CodeGeneration>
           <Linking>
             <Debugging>
               <GenerateDebugInfo Value="False"/>
@@ -45,7 +41,7 @@
         </CompilerOptions>
       </Item>
       <SharedMatrixOptions Count="1">
-        <Item1 ID="277329816881" Modes="macos" Type="IDEMacro" MacroName="LCLWidgetType" Value="cocoa"/>
+        <Item1 ID="532154084260" Modes="gtk3" Type="IDEMacro" MacroName="LCLWidgetType" Value="gtk3"/>
       </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>

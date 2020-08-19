@@ -9,13 +9,22 @@ uses
 
 type
 
+  { TMyPanel }
+
+  TMyPanel = class(TCustomControl)
+  public
+    constructor Create(AOwner: TComponent); override;
+  end;
+
+type
+
   { TForm1 }
 
   TForm1 = class(TForm)
-    Panel1: TPanel;
+    procedure FormCreate(Sender: TObject);
     procedure Panel1Click(Sender: TObject);
   private
-    pan: tpanel;
+    panelA, panelB: TMyPanel;
     procedure PanLeave(Sender: TObject);
   public
 
@@ -28,34 +37,60 @@ implementation
 
 {$R *.lfm}
 
+{ TMyPanel }
+
+constructor TMyPanel.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+
+  Caption:= 'dd';
+  ControlStyle:= ControlStyle+[csOpaque, csDoubleClicks, csTripleClicks];
+  TabStop:= true;
+
+  Width:= 300;
+  Height:= 250;
+  Font.Name:= 'Courier New';
+  Font.Size:= 9;
+
+end;
+
 { TForm1 }
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  panelA:= TMyPanel.Create(Self);
+  panelA.Parent:= Self;
+  panelA.Align:= alClient;
+  panelA.OnClick:= @Panel1Click;
+  panelA.Show;
+end;
 
 procedure TForm1.Panel1Click(Sender: TObject);
 var
   p: TPoint;
 begin
-  if pan=nil then
+  if panelB=nil then
   begin
-    pan:= tpanel.create(Self);
-    pan.parent:= panel1;
-    pan.color:= clred;
-    pan.caption:= 'click';
-    pan.width:= 100;
-    pan.Height:= 30;
-    pan.OnMouseLeave:=@PanLeave;
-    pan.OnClick:= @PanLeave;
+    panelB:= TMyPanel.create(Self);
+    panelB.parent:= panelA;
+    panelB.color:= clred;
+    panelB.caption:= 'click';
+    panelB.width:= 100;
+    panelB.Height:= 30;
+    panelB.OnMouseLeave:=@PanLeave;
+    panelB.OnClick:= @PanLeave;
   end;
 
   p:= mouse.CursorPos;
-  p:= panel1.ScreenToClient(p);
-  pan.left:= p.x-pan.Width div 2;
-  pan.top:= p.y-pan.Height div 2;
-  pan.show;
+  p:= panelA.ScreenToClient(p);
+  panelB.left:= p.x-panelB.Width div 2;
+  panelB.top:= p.y-panelB.Height div 2;
+  panelB.show;
 end;
 
 procedure TForm1.PanLeave(Sender: TObject);
 begin
-  pan.Hide;
+  panelB.Hide;
 end;
 
 end.
