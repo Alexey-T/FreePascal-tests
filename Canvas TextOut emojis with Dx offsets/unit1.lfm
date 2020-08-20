@@ -3,7 +3,7 @@ object Form1: TForm1
   Height = 282
   Top = 155
   Width = 505
-  Caption = 'Form1'
+  Caption = 'Emoji'
   ClientHeight = 282
   ClientWidth = 505
   OnCreate = FormCreate
@@ -24,5 +24,32 @@ object Form1: TForm1
     Width = 373
     Caption = 'Panel1'
     TabOrder = 1
+    OnPaint = Panel1Paint
+  end
+  object UpDown1: TUpDown
+    Left = 416
+    Height = 62
+    Top = 32
+    Width = 33
+    Min = 0
+    OnClick = UpDown1Click
+    Position = 0
+    TabOrder = 2
+  end
+  object Label1: TLabel
+    Left = 397
+    Height = 17
+    Top = 105
+    Width = 79
+    Caption = 'emoji width'
+    ParentColor = False
+  end
+  object LabelValue: TLabel
+    Left = 397
+    Height = 17
+    Top = 128
+    Width = 74
+    Caption = 'LabelValue'
+    ParentColor = False
   end
 end

@@ -5,15 +5,25 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
+  ComCtrls;
 
 type
+
+  { TForm1 }
+
   TForm1 = class(TForm)
     Button1: TButton;
+    Label1: TLabel;
+    LabelValue: TLabel;
     Panel1: TPanel;
+    UpDown1: TUpDown;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure Panel1Paint(Sender: TObject);
+    procedure UpDown1Click(Sender: TObject; Button: TUDBtnType);
   private
+    fCustom: boolean;
     procedure DoOut(c: TCanvas; const s: string; x, y: integer);
 
   public
@@ -31,12 +41,14 @@ uses LCLIntf, LCLProc, LCLType;
 
 var
   Emoji: string = 'emoji<😀😃+😄😁>end';
+  cBigWidth: integer = 150;
 
 { TForm1 }
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin
-  DoOut(Panel1.Canvas, Emoji, 10, 10);
+  fCustom:= true;
+  Panel1.Repaint;
 end;
 
 function IsCharSurrogate(ch: widechar): boolean;
@@ -91,7 +103,7 @@ begin
   begin
     setlength(dx, length(dx)+1);
     if IsCharSurrogate(sw[i]) then
-      dx[length(dx)-1]:= cell*3 div 2
+      dx[length(dx)-1]:= cell * cBigWidth div 100
     else
       dx[length(dx)-1]:= cell;
   end;
@@ -112,6 +124,23 @@ begin
   caption:= Emoji;
   panel1.caption:= 'caption: '+Emoji;
   panel1.font.name:= 'Courier New';
+  LabelValue.Caption:= IntToStr(cBigWidth)+'%';
+end;
+
+procedure TForm1.Panel1Paint(Sender: TObject);
+begin
+  if not fCustom then exit;
+  DoOut(Panel1.Canvas, Emoji, 10, 10);
+end;
+
+procedure TForm1.UpDown1Click(Sender: TObject; Button: TUDBtnType);
+begin
+  if Button=btNext then
+    Inc(cBigWidth, 10)
+  else
+    Dec(cBigWidth, 10);
+  LabelValue.Caption:= IntToStr(cBigWidth)+'%';
+  Panel1.Repaint;
 end;
 
 end.
