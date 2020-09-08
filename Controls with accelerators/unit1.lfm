@@ -3,41 +3,52 @@ object Form1: TForm1
   Height = 240
   Top = 155
   Width = 320
-  Caption = 'Form1'
+  Caption = 'accelerators: a b d'
   ClientHeight = 240
   ClientWidth = 320
   LCLVersion = '2.1.0.0'
   object Label1: TLabel
-    Left = 24
+    Left = 16
     Height = 17
-    Top = 92
-    Width = 144
-    Caption = 'aa&bb&ee&dd_ee_ee'
+    Top = 40
+    Width = 135
+    Caption = 'accel &aa&aa_aa_aa'
+    FocusControl = Edit1
     ParentColor = False
     ShowAccelChar = False
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 21
-    Top = 219
+    Height = 20
+    Top = 220
     Width = 320
     Panels = <>
     SimpleText = 'aa&&eee&ddd&eee_ee_eee'
   end
   object Button1: TButton
-    Left = 18
+    Left = 16
     Height = 25
     Top = 128
-    Width = 230
-    Caption = 'aa&&ee&&ee_ee_ee'
+    Width = 232
+    Caption = 'accel &bb&bb_bb_bb'
+    OnClick = Button1Click
     TabOrder = 1
   end
   object BitBtn1: TBitBtn
-    Left = 23
+    Left = 16
     Height = 30
     Top = 167
-    Width = 187
-    Caption = 'aa&ee&ee_ee_ee'
+    Width = 232
+    Caption = 'accel &dd&dd_dd_dd'
+    OnClick = BitBtn1Click
     TabOrder = 2
+  end
+  object Edit1: TEdit
+    Left = 184
+    Height = 26
+    Top = 40
+    Width = 64
+    TabOrder = 3
+    Text = 'Edit1'
   end
 end
