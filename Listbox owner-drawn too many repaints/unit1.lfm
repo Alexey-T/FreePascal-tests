@@ -1,0 +1,23 @@
+object Form1: TForm1
+  Left = 1530
+  Height = 229
+  Top = 185
+  Width = 488
+  Caption = 'Form1'
+  ClientHeight = 229
+  ClientWidth = 488
+  OnCreate = FormCreate
+  LCLVersion = '2.1.0.0'
+  object ListBox1: TListBox
+    Left = 20
+    Height = 109
+    Top = 11
+    Width = 152
+    ItemHeight = 0
+    OnDrawItem = ListBox1DrawItem
+    ScrollWidth = 150
+    Style = lbOwnerDrawFixed
+    TabOrder = 0
+    TopIndex = -1
+  end
+end
