@@ -16,16 +16,20 @@ type
     CheckBox1: TCheckBox;
     ColorListBox1: TColorListBox;
     ColorListBox2: TColorListBox;
+    Label1: TLabel;
+    Label2: TLabel;
     Panel1: TPanel;
     RadioGroup1: TRadioGroup;
     RadioGroup2: TRadioGroup;
-    SpinEdit1: TSpinEdit;
+    SpinBevelWidth: TSpinEdit;
+    SpinBorderWidth: TSpinEdit;
     procedure CheckBox1Change(Sender: TObject);
     procedure ColorListBox1Click(Sender: TObject);
     procedure ColorListBox2Click(Sender: TObject);
     procedure RadioGroup1Click(Sender: TObject);
     procedure RadioGroup2Click(Sender: TObject);
-    procedure SpinEdit1Change(Sender: TObject);
+    procedure SpinBevelWidthChange(Sender: TObject);
+    procedure SpinBorderWidthChange(Sender: TObject);
   private
 
   public
@@ -69,9 +73,14 @@ begin
   Panel1.BevelOuter:= TPanelBevel(RadioGroup2.ItemIndex);
 end;
 
-procedure TForm1.SpinEdit1Change(Sender: TObject);
+procedure TForm1.SpinBevelWidthChange(Sender: TObject);
 begin
-  Panel1.BevelWidth:= SpinEdit1.Value;
+  Panel1.BevelWidth:= SpinBevelWidth.Value;
+end;
+
+procedure TForm1.SpinBorderWidthChange(Sender: TObject);
+begin
+  Panel1.BorderWidth:= SpinBorderWidth.Value;
 end;
 
 end.
