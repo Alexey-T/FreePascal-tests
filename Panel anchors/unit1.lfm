@@ -1,0 +1,71 @@
+object Form1: TForm1
+  Left = 350
+  Height = 240
+  Top = 374
+  Width = 320
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 320
+  LCLVersion = '1.7'
+  object Panel1: TPanel
+    Left = 0
+    Height = 190
+    Top = 0
+    Width = 170
+    Align = alLeft
+    BevelOuter = bvNone
+    Caption = 'Panel1'
+    ClientHeight = 190
+    ClientWidth = 170
+    Color = clMedGray
+    ParentColor = False
+    TabOrder = 0
+    object Panel4: TPanel
+      Left = 0
+      Height = 190
+      Top = 0
+      Width = 170
+      Align = alClient
+      BevelOuter = bvNone
+      Caption = 'Panel4'
+      Color = clMoneyGreen
+      ParentColor = False
+      TabOrder = 0
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 50
+    Top = 190
+    Width = 320
+    Align = alBottom
+    BevelOuter = bvNone
+    Caption = 'Panel2'
+    ClientHeight = 50
+    ClientWidth = 320
+    Color = clYellow
+    ParentColor = False
+    TabOrder = 1
+    object Panel3: TPanel
+      Left = 0
+      Height = 50
+      Top = 0
+      Width = 320
+      Align = alClient
+      BevelOuter = bvNone
+      Caption = 'Panel3'
+      Color = clTeal
+      ParentColor = False
+      TabOrder = 0
+    end
+  end
+  object Panel5: TPanel
+    Left = 197
+    Height = 127
+    Top = 23
+    Width = 101
+    Caption = 'Panel5'
+    ParentColor = False
+    TabOrder = 2
+  end
+end
