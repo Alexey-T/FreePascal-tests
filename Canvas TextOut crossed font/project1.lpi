@@ -13,12 +13,14 @@
       </XPManifest>
     </General>
     <MacroValues Count="1">
-      <Macro1 Name="LCLWidgetType" Value="qt5"/>
+      <Macro3 Name="LCLWidgetType" Value="gtk3"/>
     </MacroValues>
     <BuildModes>
       <Item Name="Default" Default="True"/>
-      <SharedMatrixOptions Count="1">
-        <Item1 ID="493353555453" Modes="Default" Type="IDEMacro" MacroName="LCLWidgetType" Value="qt5"/>
+      <SharedMatrixOptions Count="3">
+        <Item1 ID="244684449312" Type="IDEMacro" MacroName="LCLWidgetType" Value="qt"/>
+        <Item2 ID="958358105902" Type="IDEMacro" MacroName="LCLWidgetType" Value="qt5"/>
+        <Item3 ID="883084005523" Modes="Default" Type="IDEMacro" MacroName="LCLWidgetType" Value="gtk3"/>
       </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>
@@ -28,10 +30,10 @@
     <RunParams>
       <FormatVersion Value="2"/>
     </RunParams>
-    <RequiredPackages>
-      <Item>
+    <RequiredPackages Count="1">
+      <Item1>
         <PackageName Value="LCL"/>
-      </Item>
+      </Item1>
     </RequiredPackages>
     <Units>
       <Unit>
@@ -42,6 +44,7 @@
         <Filename Value="unit1.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
       </Unit>
@@ -57,6 +60,10 @@
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
+      <Debugging>
+        <DebugInfoType Value="dsDwarf2Set"/>
+        <UseExternalDbgSyms Value="True"/>
+      </Debugging>
       <Options>
         <Win32>
           <GraphicApplication Value="True"/>

@@ -1,24 +1,41 @@
 object Form1: TForm1
-  Left = 1530
-  Height = 240
-  Top = 252
-  Width = 500
+  Left = 1702
+  Height = 300
+  Top = 250
+  Width = 457
   Caption = 'Form1'
-  ClientHeight = 240
-  ClientWidth = 500
-  OnCreate = FormCreate
-  OnPaint = FormPaint
+  ClientHeight = 300
+  ClientWidth = 457
+  Position = poScreenCenter
   LCLVersion = '2.1.0.0'
+  object Label1: TLabel
+    Left = 16
+    Height = 17
+    Top = 104
+    Width = 46
+    Caption = 'Label1'
+    Font.Style = [fsBold, fsItalic, fsStrikeOut]
+    ParentColor = False
+    ParentFont = False
+  end
   object ListBox1: TListBox
-    Left = 248
-    Height = 192
+    Left = 240
+    Height = 227
     Top = 8
-    Width = 232
-    ItemHeight = 0
+    Width = 207
+    Items.Strings = (
+      'bold'
+      'italic'
+      'bold italic'
+      'underline'
+      'strikeout'
+      'underline strikeout'
+      'bold it und str'
+    )
+    ItemHeight = 20
     OnDrawItem = ListBox1DrawItem
-    ScrollWidth = 230
+    ScrollWidth = 205
     Style = lbOwnerDrawFixed
     TabOrder = 0
-    TopIndex = -1
   end
 end
