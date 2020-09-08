@@ -1,0 +1,24 @@
+object Form1: TForm1
+  Left = 1498
+  Height = 293
+  Top = 309
+  Width = 518
+  Caption = 'hint for 3 cells must stay, if mousemove is inside cell'
+  ClientHeight = 293
+  ClientWidth = 518
+  OnCreate = FormCreate
+  OnPaint = FormPaint
+  Position = poScreenCenter
+  LCLVersion = '2.1.0.0'
+  object Panel1: TPanel
+    Left = 23
+    Height = 124
+    Top = 44
+    Width = 441
+    Caption = 'Panel1'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 0
+    OnMouseMove = Panel1MouseMove
+  end
+end
