@@ -14,8 +14,8 @@ type
   TForm1 = class(TForm)
     Panel1: TPanel;
     procedure FormCreate(Sender: TObject);
-    procedure FormPaint(Sender: TObject);
     procedure Panel1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
+    procedure Panel1Paint(Sender: TObject);
   private
     FOldCell: integer;
   public
@@ -30,26 +30,6 @@ implementation
 {$R *.lfm}
 
 { TForm1 }
-
-procedure TForm1.FormPaint(Sender: TObject);
-const
-  cells=3;
-var
-  w, h, i: integer;
-  c: tcanvas;
-begin
-  w:= panel1.Width;
-  h:= panel1.Height;
-  c:= panel1.Canvas;
-
-  for i:= 0 to cells-1 do
-  begin
-    c.pen.color:= clNavy;
-    c.Rectangle(i*w div 3+1, 0, (i+1)*w div 3-1, h);
-    c.TextOut(i*w div 3+15, h div 2 - 5, 'Cell '+Inttostr(i+1));
-  end;
-
-end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
@@ -76,6 +56,25 @@ begin
     Panel1.Hint:= 'Hint for cell '+Inttostr(nCell+1);
     Application.HideHint;
     Application.ActivateHint(Mouse.CursorPos, true);
+  end;
+end;
+
+procedure TForm1.Panel1Paint(Sender: TObject);
+const
+  cells=3;
+var
+  w, h, i: integer;
+  c: tcanvas;
+begin
+  w:= panel1.Width;
+  h:= panel1.Height;
+  c:= panel1.Canvas;
+
+  for i:= 0 to cells-1 do
+  begin
+    c.pen.color:= clNavy;
+    c.Rectangle(i*w div 3+1, 0, (i+1)*w div 3-1, h);
+    c.TextOut(i*w div 3+15, h div 2 - 5, 'Cell '+Inttostr(i+1));
   end;
 end;
 
