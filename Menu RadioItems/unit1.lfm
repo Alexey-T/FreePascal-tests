@@ -1,0 +1,65 @@
+object Form1: TForm1
+  Left = 1530
+  Height = 285
+  Top = 186
+  Width = 500
+  Caption = 'Form1'
+  ClientHeight = 285
+  ClientWidth = 500
+  LCLVersion = '2.1.0.0'
+  object Button1: TButton
+    Left = 208
+    Height = 25
+    Top = 56
+    Width = 264
+    Caption = 'show menu with radioitems'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 366
+    Top = 100
+    object MenuItem1: TMenuItem
+      Caption = 'radio'
+      RadioItem = True
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'radio'
+      Checked = True
+      RadioItem = True
+    end
+    object MenuItem7: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'sub radio'
+      object MenuItem5: TMenuItem
+        Caption = 'radio'
+        Checked = True
+        RadioItem = True
+      end
+      object MenuItem6: TMenuItem
+        Caption = 'radio'
+        RadioItem = True
+      end
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'sub normal'
+      object MenuItem8: TMenuItem
+        Caption = 'MenuItem8'
+        Checked = True
+      end
+      object MenuItem9: TMenuItem
+        Caption = 'MenuItem9'
+        Checked = True
+      end
+    end
+    object MenuItem11: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem10: TMenuItem
+      Caption = 'disabled'
+      Enabled = False
+    end
+  end
+end
