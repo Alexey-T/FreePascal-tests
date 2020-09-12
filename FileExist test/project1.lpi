@@ -18,7 +18,7 @@
         <CompilerOptions>
           <Version Value="11"/>
           <Target>
-            <Filename Value="project1"/>
+            <Filename Value="test_freebsd" ApplyConventions="False"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
@@ -78,11 +78,15 @@
       <IncludeFiles Value="$(ProjOutDir)"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
+    <CodeGeneration>
+      <SmartLinkUnit Value="True"/>
+    </CodeGeneration>
     <Linking>
       <Debugging>
         <GenerateDebugInfo Value="False"/>
         <UseExternalDbgSyms Value="True"/>
       </Debugging>
+      <LinkSmart Value="True"/>
       <Options>
         <Win32>
           <GraphicApplication Value="True"/>
