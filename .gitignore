@@ -7,3 +7,5 @@ project1
 *.ico
 *.app
 *.dSYM
+*.exe
+test_freebsd
