@@ -7,6 +7,7 @@ object Form1: TForm1
   ClientHeight = 248
   ClientWidth = 397
   Menu = MainMenu1
+  OnCreate = FormCreate
   Position = poScreenCenter
   LCLVersion = '2.0.10.0'
   object Button1: TButton
@@ -15,7 +16,6 @@ object Form1: TForm1
     Top = 128
     Width = 168
     Caption = 'set colors'
-    OnClick = Button1Click
     TabOrder = 0
   end
   object RadioButton1: TRadioButton
@@ -45,14 +45,17 @@ object Form1: TForm1
     TabOrder = 3
   end
   object MainMenu1: TMainMenu
+    OwnerDraw = True
     Left = 135
     Top = 69
     object MenuItem1: TMenuItem
       Caption = 'MenuItem1'
       object MenuItem4: TMenuItem
         Caption = 'MenuItem4'
+        Checked = True
         object MenuItem8: TMenuItem
           Caption = 'MenuItem8'
+          Checked = True
         end
         object MenuItem9: TMenuItem
           Caption = 'MenuItem9'
@@ -63,15 +66,20 @@ object Form1: TForm1
       end
       object MenuItem5: TMenuItem
         Caption = 'MenuItem5'
+        Enabled = False
       end
     end
     object MenuItem2: TMenuItem
       Caption = 'MenuItem2'
       object MenuItem6: TMenuItem
         Caption = 'MenuItem6'
+        Checked = True
+        RadioItem = True
       end
       object MenuItem7: TMenuItem
         Caption = 'MenuItem7'
+        Enabled = False
+        RadioItem = True
       end
     end
     object MenuItem3: TMenuItem

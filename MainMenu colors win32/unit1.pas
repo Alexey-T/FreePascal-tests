@@ -5,7 +5,8 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Menus, LCLType;
+  Windows, Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Menus, LCLType,
+  win32menustyler;
 
 type
 
@@ -27,7 +28,7 @@ type
     RadioButton1: TRadioButton;
     RadioButton2: TRadioButton;
     RadioButton3: TRadioButton;
-    procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
 
   public
@@ -39,29 +40,13 @@ var
 
 implementation
 
-uses windows;
-
 {$R *.lfm}
 
 { TForm1 }
 
-procedure TForm1.Button1Click(Sender: TObject);
-var
-  mi: TMENUINFO;
+procedure TForm1.FormCreate(Sender: TObject);
 begin
-  Fillchar(mi, sizeof(mi), 0);
-  mi.cbSize:= sizeof(mi);
-  mi.fMask:= MIM_BACKGROUND or MIM_APPLYTOSUBMENUS;
-
-  if RadioButton1.Checked then
-    mi.hbrBack:= CreateSolidBrush(RGB(200,0,200))
-  else
-  if RadioButton2.Checked then
-    mi.hbrBack:= GetSysColorBrush(COLOR_ACTIVECAPTION)
-  else
-    mi.hbrBack:= GetStockObject(DKGRAY_BRUSH);
-
-  SetMenuInfo(GetMenu(Handle), @mi);
+  MenuStyler.ApplyToForm(Self);
 end;
 
 end.
