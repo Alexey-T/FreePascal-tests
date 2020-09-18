@@ -15,12 +15,18 @@ type
     Button1: TButton;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
+    MenuItem10: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
+    MenuItem8: TMenuItem;
+    MenuItem9: TMenuItem;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    RadioButton3: TRadioButton;
     procedure Button1Click(Sender: TObject);
   private
 
@@ -47,12 +53,13 @@ begin
   mi.cbSize:= sizeof(mi);
   mi.fMask:= MIM_BACKGROUND or MIM_APPLYTOSUBMENUS;
 
-  mi.hbrBack:= CreateSolidBrush(RGB(200,0,200));
-  {
-  mnuInfo.hbrBack = GetSysColorBrush(COLOR_ACTIVECAPTION);
-  or
-  mnuInfo.hbrBack = (HBRUSH) GetStockObject(DKGRAY_BRUSH);
-  }
+  if RadioButton1.Checked then
+    mi.hbrBack:= CreateSolidBrush(RGB(200,0,200))
+  else
+  if RadioButton2.Checked then
+    mi.hbrBack:= GetSysColorBrush(COLOR_ACTIVECAPTION)
+  else
+    mi.hbrBack:= GetStockObject(DKGRAY_BRUSH);
 
   SetMenuInfo(GetMenu(Handle), @mi);
 end;

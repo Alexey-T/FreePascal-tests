@@ -1,11 +1,11 @@
 object Form1: TForm1
-  Left = 1530
-  Height = 240
-  Top = 186
-  Width = 320
+  Left = 1533
+  Height = 268
+  Top = 286
+  Width = 397
   Caption = 'Form1'
-  ClientHeight = 217
-  ClientWidth = 320
+  ClientHeight = 245
+  ClientWidth = 397
   Menu = MainMenu1
   LCLVersion = '2.1.0.0'
   object Button1: TButton
@@ -17,6 +17,31 @@ object Form1: TForm1
     OnClick = Button1Click
     TabOrder = 0
   end
+  object RadioButton1: TRadioButton
+    Left = 216
+    Height = 24
+    Top = 16
+    Width = 119
+    Caption = 'RadioButton1'
+    Checked = True
+    TabOrder = 1
+  end
+  object RadioButton2: TRadioButton
+    Left = 216
+    Height = 24
+    Top = 40
+    Width = 119
+    Caption = 'RadioButton2'
+    TabOrder = 2
+  end
+  object RadioButton3: TRadioButton
+    Left = 216
+    Height = 24
+    Top = 64
+    Width = 119
+    Caption = 'RadioButton3'
+    TabOrder = 3
+  end
   object MainMenu1: TMainMenu
     left = 135
     top = 69
@@ -24,6 +49,15 @@ object Form1: TForm1
       Caption = 'MenuItem1'
       object MenuItem4: TMenuItem
         Caption = 'MenuItem4'
+        object MenuItem8: TMenuItem
+          Caption = 'MenuItem8'
+        end
+        object MenuItem9: TMenuItem
+          Caption = 'MenuItem9'
+        end
+        object MenuItem10: TMenuItem
+          Caption = 'MenuItem10'
+        end
       end
       object MenuItem5: TMenuItem
         Caption = 'MenuItem5'
