@@ -12,11 +12,18 @@ uses
   Windows, SysUtils, Classes, Graphics, Menus, Forms, LCLType;
 
 type
-  TWin32MenuStylerColors = record
+  TWin32MenuStylerTheme = record
     ColorBk: TColor;
     ColorBkSelected: TColor;
     ColorFont: TColor;
     ColorFontDisabled: TColor;
+    CharCheckmark: Widechar;
+    CharRadiomark: Widechar;
+    FontName: string;
+    FontSize: integer;
+    IndentX: integer;
+    IndentX2: integer;
+    IndentY: integer;
   end;
 
 type
@@ -31,7 +38,7 @@ type
   end;
 
 var
-  MenuStylerColors: TWin32MenuStylerColors;
+  MenuStylerTheme: TWin32MenuStylerTheme;
   MenuStyler: TWin32MenuStyler = nil;
 
 
@@ -52,7 +59,7 @@ begin
   FillChar(mi{%H-}, sizeof(mi), 0);
   mi.cbSize:= sizeof(mi);
   mi.fMask:= MIM_BACKGROUND or MIM_APPLYTOSUBMENUS;
-  mi.hbrBack:= CreateSolidBrush(MenuStylerColors.ColorBk);
+  mi.hbrBack:= CreateSolidBrush(MenuStylerTheme.ColorBk);
   SetMenuInfo(GetMenu(AForm.Handle), @mi);
 end;
 
@@ -61,38 +68,61 @@ procedure TWin32MenuStyler.HandleMenuDrawItem(Sender: TObject; ACanvas: TCanvas;
 var
   mi: TMenuItem;
   dx, dy: integer;
+  mark: Widechar;
+  BufW: UnicodeString;
 begin
   mi:= Sender as TMenuItem;
 
   if odDisabled in AState then
-    ACanvas.Font.Color:= MenuStylerColors.ColorFontDisabled
+    ACanvas.Font.Color:= MenuStylerTheme.ColorFontDisabled
   else
-    ACanvas.Font.Color:= MenuStylerColors.ColorFont;
+    ACanvas.Font.Color:= MenuStylerTheme.ColorFont;
 
   if odSelected in AState then
-    ACanvas.Brush.Color:= MenuStylerColors.ColorBkSelected
+    ACanvas.Brush.Color:= MenuStylerTheme.ColorBkSelected
   else
-    ACanvas.Brush.Color:= MenuStylerColors.ColorBk;
+    ACanvas.Brush.Color:= MenuStylerTheme.ColorBk;
 
-  dx:= 5;
-  if not mi.IsInMenuBar then
-    Inc(dx, 16);
-  dy:= 2;
+  if mi.IsInMenuBar then
+    dx:= MenuStylerTheme.IndentX
+  else
+    dx:= MenuStylerTheme.IndentX2;
+  dy:= MenuStylerTheme.IndentY;
 
   ACanvas.FillRect(ARect);
-  ACanvas.TextOut(ARect.Left+dx, ARect.Top+dy, mi.Caption);
+  ACanvas.Font.Name:= MenuStylerTheme.FontName;
+  ACanvas.Font.Size:= MenuStylerTheme.FontSize;
+
+  BufW:= UTF8Decode(mi.Caption);
+  Windows.TextOutW(ACanvas.Handle, ARect.Left+dx, ARect.Top+dy, PWideChar(BufW), Length(BufW));
+
+  if mi.Checked then
+  begin
+    if mi.RadioItem then
+      mark:= MenuStylerTheme.CharRadiomark
+    else
+      mark:= MenuStylerTheme.CharCheckmark;
+    Windows.TextOutW(ACanvas.Handle, ARect.Left+2, ARect.Top+dy, @mark, 1);
+  end;
 end;
 
 initialization
 
   MenuStyler:= TWin32MenuStyler.Create;
 
-  with MenuStylerColors do
+  with MenuStylerTheme do
   begin
     ColorBk:= clDkGray;
     ColorBkSelected:= clNavy;
     ColorFont:= clWhite;
     ColorFontDisabled:= clMedGray;
+    CharCheckmark:= #$2713;
+    CharRadiomark:= #$25CF; //#$2022;
+    FontName:= 'default';
+    FontSize:= 9;
+    IndentX:= 5;
+    IndentX2:= 21;
+    IndentY:= 2;
   end;
 
 finalization
