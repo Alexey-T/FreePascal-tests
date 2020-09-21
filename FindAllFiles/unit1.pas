@@ -47,7 +47,7 @@ begin
   ListBox1.Items.Clear;
   L:= TStringList.Create;
   try
-    FindAllFiles(L, EditDirs.text, '*');
+    FindAllFiles(L, EditDirs.text, EditMasks.Text);
     ListBox1.Items.Assign(L);
   finally
     L.Free;
