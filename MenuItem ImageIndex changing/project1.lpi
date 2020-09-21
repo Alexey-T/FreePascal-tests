@@ -3,6 +3,9 @@
   <ProjectOptions>
     <Version Value="12"/>
     <General>
+      <Flags>
+        <CompatibilityMode Value="True"/>
+      </Flags>
       <SessionStorage Value="InProjectDir"/>
       <Title Value="project1"/>
       <Scaled Value="True"/>
@@ -12,12 +15,12 @@
         <DpiAware Value="True"/>
       </XPManifest>
     </General>
-    <MacroValues Count="1">
-      <Macro3 Name="LCLWidgetType" Value="qt5"/>
-    </MacroValues>
-    <BuildModes>
-      <Item Name="Default" Default="True"/>
-      <Item Name="Debug">
+    <BuildModes Count="3">
+      <Item1 Name="Default" Default="True"/>
+      <Item2 Name="qt5">
+        <MacroValues Count="1">
+          <Macro2 Name="LCLWidgetType" Value="qt5"/>
+        </MacroValues>
         <CompilerOptions>
           <Version Value="11"/>
           <Target>
@@ -55,8 +58,11 @@
             </Options>
           </Linking>
         </CompilerOptions>
-      </Item>
-      <Item Name="Release">
+      </Item2>
+      <Item3 Name="gtk3">
+        <MacroValues Count="1">
+          <Macro1 Name="LCLWidgetType" Value="gtk3"/>
+        </MacroValues>
         <CompilerOptions>
           <Version Value="11"/>
           <Target>
@@ -84,11 +90,10 @@
             </Options>
           </Linking>
         </CompilerOptions>
-      </Item>
-      <SharedMatrixOptions Count="3">
-        <Item1 ID="912271010852" Type="IDEMacro" MacroName="LCLWidgetType" Value="gtk3"/>
-        <Item2 ID="988543564740" Type="IDEMacro" MacroName="LCLWidgetType" Value="gtk2"/>
-        <Item3 ID="892609007190" Modes="Default" Type="IDEMacro" MacroName="LCLWidgetType" Value="qt5"/>
+      </Item3>
+      <SharedMatrixOptions Count="2">
+        <Item1 ID="912271010852" Modes="gtk3" Type="IDEMacro" MacroName="LCLWidgetType" Value="gtk3"/>
+        <Item2 ID="892609007190" Modes="qt5" Type="IDEMacro" MacroName="LCLWidgetType" Value="qt5"/>
       </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>
@@ -98,24 +103,24 @@
     <RunParams>
       <FormatVersion Value="2"/>
     </RunParams>
-    <RequiredPackages>
-      <Item>
+    <RequiredPackages Count="1">
+      <Item1>
         <PackageName Value="LCL"/>
-      </Item>
+      </Item1>
     </RequiredPackages>
-    <Units>
-      <Unit>
+    <Units Count="2">
+      <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
-      </Unit>
-      <Unit>
+      </Unit0>
+      <Unit1>
         <Filename Value="unit1.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
-      </Unit>
+      </Unit1>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -136,16 +141,16 @@
     </Linking>
   </CompilerOptions>
   <Debugging>
-    <Exceptions>
-      <Item>
+    <Exceptions Count="3">
+      <Item1>
         <Name Value="EAbort"/>
-      </Item>
-      <Item>
+      </Item1>
+      <Item2>
         <Name Value="ECodetoolError"/>
-      </Item>
-      <Item>
+      </Item2>
+      <Item3>
         <Name Value="EFOpenError"/>
-      </Item>
+      </Item3>
     </Exceptions>
   </Debugging>
 </CONFIG>
