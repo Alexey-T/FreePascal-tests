@@ -5,17 +5,24 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls;
 
 type
 
   { TForm1 }
 
   TForm1 = class(TForm)
-    Button1: TButton;
-    Edit1: TEdit;
+    ButtonFind: TButton;
+    ButtonDir: TButton;
+    EditDirs: TEdit;
+    EditMasks: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
     ListBox1: TListBox;
-    procedure Button1Click(Sender: TObject);
+    Panel1: TPanel;
+    SelectDirectoryDialog1: TSelectDirectoryDialog;
+    procedure ButtonFindClick(Sender: TObject);
+    procedure ButtonDirClick(Sender: TObject);
   private
 
   public
@@ -33,18 +40,25 @@ uses FileUtil;
 
 { TForm1 }
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TForm1.ButtonFindClick(Sender: TObject);
 var
   L: TStringList;
 begin
   ListBox1.Items.Clear;
   L:= TStringList.Create;
   try
-    FindAllFiles(L, edit1.text, '*');
+    FindAllFiles(L, EditDirs.text, '*');
     ListBox1.Items.Assign(L);
   finally
     L.Free;
   end;
+end;
+
+procedure TForm1.ButtonDirClick(Sender: TObject);
+begin
+  with SelectDirectoryDialog1 do
+    if Execute then
+      EditDirs.Text:= FileName;
 end;
 
 end.

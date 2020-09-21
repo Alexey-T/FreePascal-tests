@@ -2,38 +2,85 @@ object Form1: TForm1
   Left = 1480
   Height = 576
   Top = 255
-  Width = 748
-  Caption = 'Form1'
+  Width = 800
+  Caption = 'FindAllFiles test'
   ClientHeight = 576
-  ClientWidth = 748
+  ClientWidth = 800
+  Position = poScreenCenter
   LCLVersion = '2.1.0.0'
-  object Edit1: TEdit
-    Left = 0
-    Height = 26
-    Top = 0
-    Width = 748
-    Align = alTop
-    TabOrder = 0
-    Text = '/home/user/test'
-  end
   object ListBox1: TListBox
-    Left = 0
-    Height = 512
-    Top = 26
-    Width = 748
-    Align = alTop
+    Left = 6
+    Height = 494
+    Top = 76
+    Width = 788
+    Align = alClient
+    BorderSpacing.Around = 6
     ItemHeight = 0
-    ScrollWidth = 746
-    TabOrder = 1
+    ScrollWidth = 786
+    TabOrder = 0
     TopIndex = -1
   end
-  object Button1: TButton
-    Left = 8
-    Height = 25
-    Top = 544
-    Width = 120
-    Caption = 'Find all files'
-    OnClick = Button1Click
-    TabOrder = 2
+  object Panel1: TPanel
+    Left = 0
+    Height = 70
+    Top = 0
+    Width = 800
+    Align = alTop
+    ClientHeight = 70
+    ClientWidth = 800
+    TabOrder = 1
+    object EditDirs: TEdit
+      Left = 160
+      Height = 26
+      Top = 8
+      Width = 464
+      TabOrder = 0
+      Text = '/usr/lib'
+    end
+    object Label1: TLabel
+      Left = 8
+      Height = 17
+      Top = 9
+      Width = 129
+      Caption = 'folders ;-separated'
+      ParentColor = False
+    end
+    object EditMasks: TEdit
+      Left = 160
+      Height = 26
+      Top = 36
+      Width = 464
+      TabOrder = 1
+    end
+    object Label2: TLabel
+      Left = 8
+      Height = 17
+      Top = 37
+      Width = 77
+      Caption = 'file mask(s)'
+      ParentColor = False
+    end
+    object ButtonDir: TButton
+      Left = 632
+      Height = 25
+      Top = 9
+      Width = 88
+      Caption = 'browse...'
+      OnClick = ButtonDirClick
+      TabOrder = 2
+    end
+    object ButtonFind: TButton
+      Left = 632
+      Height = 25
+      Top = 37
+      Width = 152
+      Caption = 'find all files'
+      OnClick = ButtonFindClick
+      TabOrder = 3
+    end
+  end
+  object SelectDirectoryDialog1: TSelectDirectoryDialog
+    left = 754
+    top = 48
   end
 end
