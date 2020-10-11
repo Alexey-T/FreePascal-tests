@@ -20,6 +20,7 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
+    chkAntialias: TCheckBox;
     chkShowBorder: TCheckBox;
     ImageList1: TImageList;
     ImageList2: TImageList;
@@ -131,12 +132,18 @@ end;
 procedure TForm1.PaintBitmap;
 const
   cell = 10;
+  dx = 5;
 var
   c: tcanvas;
   i: integer;
 begin
   c:= b.canvas;
-  c.AntialiasingMode:= amOn;
+
+  if chkAntialias.Checked then
+    c.AntialiasingMode:= amOn
+  else
+    c.AntialiasingMode:= amOff;
+
   c.Brush.Color:= clMoneyGreen;
   c.FillRect(0, 0, b.Width, b.Height);
 
@@ -264,7 +271,7 @@ begin
   C.Polyline([Point(35,80+100),Point(45,80+100),Point(55,80+100),Point(55,90+100),
             Point(55,90+100),Point(55,100+100),Point(35,90+100),Point(35,100+100)]);
 
-  C.Pen.Color:= clGreen;
+  C.Pen.Color:= clBlue;
   C.PolyBezier([Point(35,80+150),Point(45,80+150),Point(55,80+150),Point(55,90+150),
               Point(55,90+150),Point(55,100+150),Point(35,90+150),Point(35,100+150)],
               false, false);
@@ -288,6 +295,40 @@ begin
   c.FillRect(250+i*cell, 20+i*cell, 250+(i+1)*cell, 20+(i+1)*cell);
   i:= 3;
   c.FrameRect(250+i*cell, 20+i*cell, 250+(i+1)*cell, 20+(i+1)*cell);
+
+  c.MoveTo(50, 300);
+  c.LineTo(50+2*dx+1, 300);
+  c.MoveTo(50+dx, 300-dx);
+  c.LineTo(50+dx, 300+dx+1);
+
+  c.Pen.Color:= clRed;
+  c.MoveTo(101, 300);
+  c.LineTo(110, 300);
+  c.Pen.Color:= clBlue;
+  c.MoveTo(110, 301);
+  c.LineTo(110, 310);
+  c.Pen.Color:= clRed;
+  c.MoveTo(109, 310);
+  c.LineTo(100, 310);
+  c.Pen.Color:= clBlue;
+  c.MoveTo(100, 309);
+  c.LineTo(100, 300);
+
+  c.Pixels[100, 300]:= clYellow;
+  c.Pixels[110, 300]:= clYellow;
+  c.Pixels[100, 310]:= clYellow;
+  c.Pixels[110, 310]:= clWhite-2;
+  if c.Pixels[110, 310]<>clWhite-2 then
+    caption:= 'not ok: '+IntToStr(c.Pixels[110, 310])
+  else
+    caption:= 'ok';
+
+  c.Pen.Color:= clRed;
+  c.MoveTo(102, 302);
+  c.LineTo(109, 309);
+  c.Pen.Color:= clBlue;
+  c.MoveTo(108, 302);
+  c.LineTo(101, 309);
 end;
 
 end.

@@ -13,6 +13,7 @@ object Form1: TForm1
     Height = 400
     Top = 8
     Width = 408
+    BevelInner = bvLowered
     Caption = 'Panel1'
     ClientHeight = 400
     ClientWidth = 408
@@ -30,6 +31,14 @@ object Form1: TForm1
       OnChange = chkShowBorderChange
       State = cbChecked
       TabOrder = 0
+    end
+    object chkAntialias: TCheckBox
+      Left = 8
+      Height = 24
+      Top = 352
+      Width = 103
+      Caption = 'antialias on'
+      TabOrder = 1
     end
   end
   object ImageList1: TImageList
