@@ -1,0 +1,34 @@
+object Form1: TForm1
+  Left = 1525
+  Height = 240
+  Top = 200
+  Width = 320
+  ActiveControl = Memo1
+  Caption = 'press F2 to show tooltip'
+  ClientHeight = 240
+  ClientWidth = 320
+  KeyPreview = True
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  LCLVersion = '2.1.0.0'
+  object Memo1: TMemo
+    Left = 8
+    Height = 168
+    Top = 8
+    Width = 264
+    Lines.Strings = (
+      'sdfsdfsdf sd'
+      'sdf sdfs dfsd fsdf sdf'
+      'sdf sdf sdf sdf sdf '
+      'sdf sdf sdf sdf '
+      'sd fsdf'
+    )
+    TabOrder = 0
+  end
+  object Timer1: TTimer
+    Interval = 2000
+    OnTimer = Timer1Timer
+    Left = 172
+    Top = 205
+  end
+end
