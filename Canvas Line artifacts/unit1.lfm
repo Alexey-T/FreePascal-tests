@@ -1,0 +1,33 @@
+object Form1: TForm1
+  Left = 1546
+  Height = 240
+  Top = 244
+  Width = 320
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 320
+  Color = clSkyBlue
+  OnCreate = FormCreate
+  LCLVersion = '2.1.0.0'
+  object Panel1: TPanel
+    Left = 61
+    Height = 140
+    Top = 36
+    Width = 226
+    BevelOuter = bvNone
+    Caption = 'Panel1'
+    Color = clLime
+    ParentColor = False
+    TabOrder = 0
+    OnPaint = Panel1Paint
+  end
+  object chkBuff: TCheckBox
+    Left = 109
+    Height = 24
+    Top = 183
+    Width = 110
+    Caption = 'dbl buffered'
+    OnChange = chkBuffChange
+    TabOrder = 1
+  end
+end
