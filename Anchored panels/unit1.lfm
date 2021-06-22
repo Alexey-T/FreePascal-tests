@@ -1,0 +1,213 @@
+object Form1: TForm1
+  Left = 1519
+  Height = 606
+  Top = 235
+  Width = 887
+  Caption = 'Form1'
+  ClientHeight = 606
+  ClientWidth = 887
+  LCLVersion = '2.3.0.0'
+  object Panel1: TPanel
+    AnchorSideLeft.Control = Owner
+    Left = 0
+    Height = 141
+    Top = 296
+    Width = 107
+    Caption = 'Panel1'
+    Color = clRed
+    ParentColor = False
+    TabOrder = 0
+  end
+  object Panel2: TPanel
+    AnchorSideLeft.Control = Panel1
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Panel1
+    AnchorSideBottom.Control = Panel1
+    AnchorSideBottom.Side = asrBottom
+    Left = 107
+    Height = 141
+    Top = 296
+    Width = 77
+    Anchors = [akTop, akLeft, akBottom]
+    Caption = 'Panel2'
+    Color = clRed
+    ParentColor = False
+    TabOrder = 1
+  end
+  object Panel3: TPanel
+    AnchorSideLeft.Control = Panel2
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Panel1
+    AnchorSideBottom.Control = Panel2
+    AnchorSideBottom.Side = asrBottom
+    Left = 184
+    Height = 141
+    Top = 296
+    Width = 80
+    Anchors = [akTop, akLeft, akBottom]
+    Caption = 'Panel3'
+    Color = clRed
+    ParentColor = False
+    TabOrder = 2
+  end
+  object Panel4: TPanel
+    AnchorSideTop.Control = Owner
+    Left = 424
+    Height = 93
+    Top = 0
+    Width = 114
+    Caption = 'Panel4'
+    Color = clAqua
+    ParentColor = False
+    TabOrder = 3
+  end
+  object Panel5: TPanel
+    AnchorSideLeft.Control = Panel4
+    AnchorSideTop.Control = Panel4
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Panel4
+    AnchorSideRight.Side = asrBottom
+    Left = 424
+    Height = 43
+    Top = 93
+    Width = 114
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Panel5'
+    Color = clAqua
+    ParentColor = False
+    TabOrder = 4
+  end
+  object Panel6: TPanel
+    AnchorSideLeft.Control = Panel5
+    AnchorSideTop.Control = Panel5
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Panel5
+    AnchorSideRight.Side = asrBottom
+    Left = 424
+    Height = 40
+    Top = 136
+    Width = 114
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Panel6'
+    Color = clAqua
+    ParentColor = False
+    TabOrder = 5
+  end
+  object Label1: TLabel
+    AnchorSideLeft.Control = Panel3
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Panel1
+    AnchorSideTop.Side = asrCenter
+    Left = 264
+    Height = 17
+    Top = 358
+    Width = 223
+    Caption = '<-- 3 panels anchored horizontally'
+  end
+  object Label2: TLabel
+    AnchorSideTop.Control = Panel4
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = Panel4
+    Left = 220
+    Height = 17
+    Top = 38
+    Width = 204
+    Anchors = [akTop, akRight]
+    Caption = '3 panels anchored vertically -->'
+  end
+  object Panel7: TPanel
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 432
+    Height = 96
+    Top = 510
+    Width = 127
+    Anchors = [akLeft, akBottom]
+    Caption = 'Panel7'
+    Color = clSkyBlue
+    ParentColor = False
+    TabOrder = 6
+  end
+  object Panel8: TPanel
+    AnchorSideLeft.Control = Panel7
+    AnchorSideRight.Control = Panel7
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Panel7
+    Left = 432
+    Height = 50
+    Top = 460
+    Width = 127
+    Anchors = [akLeft, akRight, akBottom]
+    Caption = 'Panel8'
+    Color = clSkyBlue
+    ParentColor = False
+    TabOrder = 7
+  end
+  object Panel9: TPanel
+    AnchorSideLeft.Control = Panel8
+    AnchorSideRight.Control = Panel8
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Panel8
+    Left = 432
+    Height = 50
+    Top = 410
+    Width = 127
+    Anchors = [akLeft, akRight, akBottom]
+    Caption = 'Panel9'
+    Color = clSkyBlue
+    ParentColor = False
+    TabOrder = 8
+  end
+  object Label3: TLabel
+    AnchorSideTop.Control = Panel7
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = Panel7
+    Left = 228
+    Height = 17
+    Top = 550
+    Width = 204
+    Anchors = [akTop, akRight]
+    Caption = '3 panels anchored vertically -->'
+  end
+  object Panel10: TPanel
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 788
+    Height = 106
+    Top = 216
+    Width = 99
+    Anchors = [akTop, akRight]
+    Caption = 'Panel10'
+    Color = clFuchsia
+    ParentColor = False
+    TabOrder = 9
+  end
+  object Panel11: TPanel
+    AnchorSideTop.Control = Panel10
+    AnchorSideRight.Control = Panel10
+    AnchorSideBottom.Control = Panel10
+    AnchorSideBottom.Side = asrBottom
+    Left = 678
+    Height = 106
+    Top = 216
+    Width = 110
+    Anchors = [akTop, akRight, akBottom]
+    Caption = 'Panel11'
+    Color = clFuchsia
+    ParentColor = False
+    TabOrder = 10
+  end
+  object Label4: TLabel
+    AnchorSideLeft.Control = Panel3
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Panel10
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = Panel11
+    Left = 458
+    Height = 17
+    Top = 261
+    Width = 220
+    Anchors = [akTop, akRight]
+    Caption = '3 panels anchored horizontally-->'
+  end
+end
