@@ -27,6 +27,7 @@ type
     Panel7: TPanel;
     Panel8: TPanel;
     Panel9: TPanel;
+    procedure Panel9Paint(Sender: TObject);
   private
 
   public
@@ -39,6 +40,13 @@ var
 implementation
 
 {$R *.lfm}
+
+{ TForm1 }
+
+procedure TForm1.Panel9Paint(Sender: TObject);
+begin
+  Panel9.Canvas.TextOut(2,2,'panel_9');
+end;
 
 end.
 

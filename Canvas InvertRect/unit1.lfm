@@ -1,18 +1,21 @@
 object Form1: TForm1
   Left = 1667
-  Height = 328
+  Height = 359
   Top = 171
-  Width = 331
+  Width = 390
   Caption = 'Form1'
-  ClientHeight = 328
-  ClientWidth = 331
+  ClientHeight = 359
+  ClientWidth = 390
+  KeyPreview = True
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.1.0.0'
+  LCLVersion = '2.3.0.0'
   object Panel1: TPanel
     Left = 9
-    Height = 200
+    Height = 310
     Top = 10
-    Width = 247
+    Width = 327
     BevelOuter = bvNone
     Caption = 'Panel1'
     Color = clMoneyGreen
