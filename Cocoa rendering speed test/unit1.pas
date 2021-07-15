@@ -57,7 +57,7 @@ begin
     if CheckTextout.Checked then
     begin
       C.Brush.Style:= bsSolid;
-      C.TextOut(x, y, 'Some text string');
+      C.TextOut(x, y, 'Simple text string');
     end;
 
     if CheckTextoutCl.Checked then
@@ -65,7 +65,7 @@ begin
       C.Font.Color:= Random($FFFFFF);
       C.Brush.Color:= Random($FFFFFF);
       C.Brush.Style:= bsSolid;
-      C.TextOut(x, y, 'Some text string colored');
+      C.TextOut(x, y, 'Colored text string');
     end;
 
     if CheckRect.Checked then
