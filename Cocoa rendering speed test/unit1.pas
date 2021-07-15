@@ -56,7 +56,10 @@ begin
     y:= i mod 80 * 10;
 
     if CheckTextout.Checked then
+    begin
+      C.Brush.Style:= bsSolid;
       C.TextOut(x, y, 'Some text string');
+    end;
 
     if CheckTextoutCl.Checked then
     begin
@@ -69,6 +72,7 @@ begin
     if CheckRect.Checked then
     begin
       C.Pen.Color:= Random($FFFFFF);
+      C.Brush.Style:= bsClear;
       C.Rectangle(x, y, x+120, y+10);
     end;
 
@@ -76,6 +80,7 @@ begin
     begin
       C.Pen.Color:= Random($FFFFFF);
       C.Brush.Color:= Random($FFFFFF);
+      C.Brush.Style:= bsSolid;
       C.FillRect(x, y, x+120, y+10);
     end;
   end;
