@@ -49,7 +49,6 @@ begin
   tick:= GetTickCount64;
   C:= PanelMain.Canvas;
 
-  //Sleep(10);
   for i:= 0 to NCount-1 do
   begin
     x:= i div 80 * 100;
@@ -73,7 +72,7 @@ begin
     begin
       C.Pen.Color:= Random($FFFFFF);
       C.Brush.Style:= bsClear;
-      C.Rectangle(x, y, x+120, y+10);
+      C.Rectangle(x, y, x+100, y+10);
     end;
 
     if CheckFillRect.Checked then
@@ -81,7 +80,7 @@ begin
       C.Pen.Color:= Random($FFFFFF);
       C.Brush.Color:= Random($FFFFFF);
       C.Brush.Style:= bsSolid;
-      C.FillRect(x, y, x+120, y+10);
+      C.FillRect(x, y, x+100, y+10);
     end;
   end;
 
