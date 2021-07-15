@@ -5,23 +5,27 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls;
+  Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, ExtCtrls,
+  StdCtrls, LCLProc, LCLType;
 
 type
 
   { TForm1 }
 
   TForm1 = class(TForm)
-    CheckBox1: TCheckBox;
-    CheckBox2: TCheckBox;
-    CheckBox3: TCheckBox;
-    CheckBox4: TCheckBox;
+    CheckTextout: TCheckBox;
+    CheckTextoutCl: TCheckBox;
+    CheckRect: TCheckBox;
+    CheckFillRect: TCheckBox;
     LabelSpeed: TLabel;
     PanelCtl: TPanel;
     PanelMain: TPanel;
+    TimerMain: TTimer;
+    procedure FormCreate(Sender: TObject);
     procedure PanelMainPaint(Sender: TObject);
+    procedure TimerMainTimer(Sender: TObject);
   private
-
+    NCount: integer;
   public
 
   end;
@@ -38,13 +42,56 @@ implementation
 procedure TForm1.PanelMainPaint(Sender: TObject);
 var
   tick: QWord;
+  C: TCanvas;
+  x, y: integer;
+  i: integer;
 begin
   tick:= GetTickCount64;
+  C:= PanelMain.Canvas;
 
-  Sleep(10);
+  //Sleep(10);
+  for i:= 0 to NCount-1 do
+  begin
+    x:= i div 80 * 100;
+    y:= i mod 80 * 10;
+
+    if CheckTextout.Checked then
+      C.TextOut(x, y, 'Some text string');
+
+    if CheckTextoutCl.Checked then
+    begin
+      C.Font.Color:= Random($FFFFFF);
+      C.Brush.Color:= Random($FFFFFF);
+      C.Brush.Style:= bsSolid;
+      C.TextOut(x, y, 'Some text string colored');
+    end;
+
+    if CheckRect.Checked then
+    begin
+      C.Pen.Color:= Random($FFFFFF);
+      C.Rectangle(x, y, x+120, y+10);
+    end;
+
+    if CheckFillRect.Checked then
+    begin
+      C.Pen.Color:= Random($FFFFFF);
+      C.Brush.Color:= Random($FFFFFF);
+      C.FillRect(x, y, x+120, y+10);
+    end;
+  end;
 
   tick:= GetTickCount64-tick;
   LabelSpeed.Caption:= Format('%d ms per paint', [tick]);
+end;
+
+procedure TForm1.TimerMainTimer(Sender: TObject);
+begin
+  PanelMain.Invalidate;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  NCount:= 1000;
 end;
 
 end.
