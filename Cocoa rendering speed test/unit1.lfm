@@ -1,0 +1,69 @@
+object Form1: TForm1
+  Left = 1357
+  Height = 647
+  Top = 170
+  Width = 1011
+  Caption = 'Cocoa speed test'
+  ClientHeight = 647
+  ClientWidth = 1011
+  Position = poScreenCenter
+  LCLVersion = '2.3.0.0'
+  object PanelCtl: TPanel
+    Left = 0
+    Height = 58
+    Top = 0
+    Width = 1011
+    Align = alTop
+    ClientHeight = 58
+    ClientWidth = 1011
+    TabOrder = 0
+    object CheckBox1: TCheckBox
+      Left = 6
+      Height = 24
+      Top = 0
+      Width = 100
+      Caption = 'do TextOut'
+      TabOrder = 0
+    end
+    object CheckBox2: TCheckBox
+      Left = 6
+      Height = 24
+      Top = 24
+      Width = 155
+      Caption = 'do colored TextOut'
+      TabOrder = 1
+    end
+    object CheckBox3: TCheckBox
+      Left = 216
+      Height = 24
+      Top = 0
+      Width = 165
+      Caption = 'do simple rectangles'
+      TabOrder = 2
+    end
+    object CheckBox4: TCheckBox
+      Left = 216
+      Height = 24
+      Top = 24
+      Width = 154
+      Caption = 'do filled rectangles'
+      TabOrder = 3
+    end
+    object LabelSpeed: TLabel
+      Left = 440
+      Height = 17
+      Top = 7
+      Width = 79
+      Caption = 'LabelSpeed'
+    end
+  end
+  object PanelMain: TPanel
+    Left = 0
+    Height = 589
+    Top = 58
+    Width = 1011
+    Align = alClient
+    TabOrder = 1
+    OnPaint = PanelMainPaint
+  end
+end
