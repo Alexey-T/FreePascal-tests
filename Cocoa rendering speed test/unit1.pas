@@ -65,8 +65,14 @@ begin
 
   {$ifdef darwin}
   _cocoa_ctx:= 0;
-  _cocoa_text:= 0;
+  _cocoa_text_set:= 0;
+  _cocoa_text_draw:= 0;
   _cocoa_rect:= 0;
+  _cocoa_draw_prepare1:= 0;
+  _cocoa_draw_prepare2:= 0;
+  _cocoa_draw_bg:= 0;
+  _cocoa_draw_font:= 0;
+  _cocoa_draw_restore:= 0;
   {$endif}
 
   for i:= 0 to NCount-1 do
@@ -110,10 +116,16 @@ begin
   LabelSpeed.Caption:= Format('%d ms per paint', [tick]);
 
   {$ifdef darwin}
-  LabelMac.Caption:= Format('macOS context+textout+rect (msec): %d+%d+%d', [
+  LabelMac.Caption:= Format('macOS context+SetText+Draw: %d + %d + %d[%d+%d+%d+%d+%d]', [
     _cocoa_ctx,
-    _cocoa_text,
-    _cocoa_rect ]);
+    _cocoa_text_set,
+    _cocoa_text_draw,
+    _cocoa_draw_prepare1,
+    _cocoa_draw_prepare2,
+    _cocoa_draw_bg,
+    _cocoa_draw_font,
+    _cocoa_draw_restore
+    ]);
   {$endif}
 end;
 
