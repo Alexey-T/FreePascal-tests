@@ -5,8 +5,12 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, process, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, LCLProc, LCLType;
+  Classes, SysUtils, process, Forms, Controls, Graphics,
+  StdCtrls, ExtCtrls,
+  {$ifdef darwin}
+  CocoaGDIObjects,
+  {$endif}
+  LCLProc, LCLType;
 
 type
 
@@ -17,6 +21,7 @@ type
     CheckTextoutCl: TCheckBox;
     CheckRect: TCheckBox;
     CheckFillRect: TCheckBox;
+    LabelMac: TLabel;
     LabelSpeed: TLabel;
     PanelCtl: TPanel;
     PanelMain: TPanel;
@@ -58,6 +63,12 @@ begin
   chk_Rect1:= CheckRect.Checked;
   chk_Rect2:= CheckFillRect.Checked;
 
+  {$ifdef darwin}
+  _cocoa_ctx:= 0;
+  _cocoa_text:= 0;
+  _cocoa_rect:= 0;
+  {$endif}
+
   for i:= 0 to NCount-1 do
   begin
     x:= i div 80 * 100;
@@ -97,6 +108,13 @@ begin
 
   tick:= GetTickCount64-tick;
   LabelSpeed.Caption:= Format('%d ms per paint', [tick]);
+
+  {$ifdef darwin}
+  LabelMac.Caption:= Format('macOS context+textout+rect (msec): %d+%d+%d', [
+    _cocoa_ctx,
+    _cocoa_text,
+    _cocoa_rect ]);
+  {$endif}
 end;
 
 procedure TForm1.TimerMainTimer(Sender: TObject);

@@ -61,6 +61,13 @@ object Form1: TForm1
       Width = 79
       Caption = 'LabelSpeed'
     end
+    object LabelMac: TLabel
+      Left = 439
+      Height = 17
+      Top = 28
+      Width = 65
+      Caption = 'LabelMac'
+    end
   end
   object PanelMain: TPanel
     Left = 0
