@@ -8,7 +8,9 @@ uses
   Classes, SysUtils, process, Forms, Controls, Graphics,
   StdCtrls, ExtCtrls,
   {$ifdef darwin}
-  CocoaGDIObjects,
+    {$ifndef LCLQt5}
+    CocoaGDIObjects,
+    {$endif}
   {$endif}
   LCLProc, LCLType;
 
@@ -64,6 +66,7 @@ begin
   chk_Rect2:= CheckFillRect.Checked;
 
   {$ifdef darwin}
+  {$ifndef LCLQt5}
   _cocoa_ctx:= 0;
   _cocoa_text_set:= 0;
   _cocoa_text_draw:= 0;
@@ -73,6 +76,7 @@ begin
   _cocoa_draw_bg:= 0;
   _cocoa_draw_font:= 0;
   _cocoa_draw_restore:= 0;
+  {$endif}
   {$endif}
 
   for i:= 0 to NCount-1 do
@@ -116,6 +120,7 @@ begin
   LabelSpeed.Caption:= Format('%d ms per paint', [tick]);
 
   {$ifdef darwin}
+  {$ifndef LCLQt5}
   LabelMac.Caption:= Format('macOS context+SetText+Draw: %d + %d + %d[%d+%d+%d+%d+%d]', [
     _cocoa_ctx,
     _cocoa_text_set,
@@ -126,6 +131,7 @@ begin
     _cocoa_draw_font,
     _cocoa_draw_restore
     ]);
+  {$endif}
   {$endif}
 end;
 
