@@ -9,7 +9,7 @@ object Form1: TForm1
   KeyPreview = True
   OnKeyDown = FormKeyDown
   Position = poScreenCenter
-  LCLVersion = '2.1.0.0'
+  LCLVersion = '2.3.0.0'
   object ListBox1: TListBox
     Left = 0
     Height = 556

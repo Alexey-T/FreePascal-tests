@@ -84,7 +84,7 @@
         <CompilerOptions>
           <Version Value="11"/>
           <Target>
-            <Filename Value="paint_speed_qt5"/>
+            <Filename Value="paint_speed"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>

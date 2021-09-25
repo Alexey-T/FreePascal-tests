@@ -36,11 +36,12 @@ var
   s: string;
 begin
   s:= '';
-  if ssAlt in shift then s+='alt ';
-  if ssShift in shift then s+= 'shift ';
-  if ssCtrl in shift then s+= 'ctrl ';
-  listbox1.items.add('key: '+inttostr(Key)+', state: '+s);
+  if ssAlt in shift then s+='alt+';
+  if ssShift in shift then s+= 'shift+';
+  if ssCtrl in shift then s+= 'ctrl+';
+  listbox1.items.add('key: '+ShortCutToText(Key)+', shiftstate: '+s);
   listbox1.ItemIndex:= ListBox1.items.count-1;
+  key:= 0;
 end;
 
 end.
