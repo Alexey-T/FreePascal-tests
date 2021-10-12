@@ -117,6 +117,12 @@ begin
 
   C.Ellipse(20, 20, 80, 80);
 
+  C.Polygon([Point(10, 110), Point(80,110), Point(40,220)]);
+
+  C.PolyBezier([Point(110, 110), Point(180,110), Point(140,220), Point(90,20), Point(50,20)], true{filled});
+
+  C.RadialPie(90, 90, 200, 200, 0, 500);
+
   Canvas.CopyRect(ClientRect, C, Rect(0, 0, b.Width, b.Height));
 end;
 
