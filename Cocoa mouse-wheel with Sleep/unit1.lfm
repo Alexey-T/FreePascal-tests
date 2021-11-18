@@ -1,0 +1,58 @@
+object Form1: TForm1
+  Left = 1527
+  Height = 617
+  Top = 187
+  Width = 646
+  Caption = 'do mouse-wheel scroll over empty panel'
+  ClientHeight = 617
+  ClientWidth = 646
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '2.3.0.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 567
+    Top = 0
+    Width = 646
+    Align = alClient
+    ClientHeight = 567
+    ClientWidth = 646
+    TabOrder = 0
+    OnMouseWheel = Panel1MouseWheel
+    object ListBox1: TListBox
+      Left = 267
+      Height = 565
+      Top = 1
+      Width = 378
+      Align = alRight
+      ItemHeight = 0
+      TabOrder = 0
+      TopIndex = -1
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 50
+    Top = 567
+    Width = 646
+    Align = alBottom
+    ClientHeight = 50
+    ClientWidth = 646
+    TabOrder = 1
+    object edSleep: TSpinEdit
+      Left = 11
+      Height = 26
+      Top = 10
+      Width = 77
+      MaxValue = 1000
+      TabOrder = 0
+    end
+    object Label1: TLabel
+      Left = 97
+      Height = 17
+      Top = 15
+      Width = 245
+      Caption = 'sleep in msec, try with 0 and with 200'
+    end
+  end
+end
