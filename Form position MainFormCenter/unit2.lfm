@@ -1,0 +1,10 @@
+object Form2: TForm2
+  Left = 1562
+  Height = 262
+  Top = 339
+  Width = 420
+  Caption = 'msgbox (Position=MainFormCenter)'
+  Color = clMoneyGreen
+  Position = poMainFormCenter
+  LCLVersion = '2.3.0.0'
+end
