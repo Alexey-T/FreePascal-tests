@@ -1,30 +1,30 @@
 object Form1: TForm1
   Left = 100
-  Height = 263
+  Height = 265
   Top = 156
-  Width = 530
+  Width = 535
   Caption = 'begin drag-drop and see at Cursor with Ctrl pressed'
-  ClientHeight = 263
-  ClientWidth = 530
+  ClientHeight = 265
+  ClientWidth = 535
   OnCreate = FormCreate
   Position = poScreenCenter
   LCLVersion = '2.3.0.0'
   object PanelMain1: TPanel
     Left = 0
-    Height = 263
+    Height = 265
     Top = 0
     Width = 266
     Align = alLeft
-    Caption = 'PanelMain1'
     TabOrder = 0
+    OnDragOver = PanelMain1DragOver
   end
   object PanelMain2: TPanel
     Left = 266
-    Height = 263
+    Height = 265
     Top = 0
-    Width = 264
+    Width = 269
     Align = alClient
-    Caption = 'PanelMain2'
     TabOrder = 1
+    OnDragOver = PanelMain1DragOver
   end
 end

@@ -36,6 +36,8 @@ type
     PanelMain1: TPanel;
     PanelMain2: TPanel;
     procedure FormCreate(Sender: TObject);
+    procedure PanelMain1DragOver(Sender, Source: TObject; X, Y: Integer;
+      State: TDragState; var Accept: Boolean);
   private
     FPanel, FPanel2: TMyPanel;
 
@@ -163,7 +165,6 @@ begin
   FPanel.BorderSpacing.Around:= 12;
   FPanel.Align:= alClient;
   FPanel.Width:= 200;
-  FPanel.Name:= 'PanelLeft';
   FPanel.Show;
 
   FPanel2:= TMyPanel.Create(Self);
@@ -171,9 +172,15 @@ begin
   FPanel2.Color:= clSkyBlue;
   FPanel2.BorderSpacing.Around:= 12;
   FPanel2.Align:= alClient;
-  FPanel2.Name:= 'PanelRight';
   FPanel2.Show;
 end;
+
+procedure TForm1.PanelMain1DragOver(Sender, Source: TObject; X, Y: Integer;
+  State: TDragState; var Accept: Boolean);
+begin
+  Accept:= false;
+end;
+
 
 end.
 
