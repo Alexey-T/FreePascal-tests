@@ -4,7 +4,27 @@ object Form1: TForm1
   Top = 156
   Width = 530
   Caption = 'begin drag-drop and see at Cursor with Ctrl pressed'
+  ClientHeight = 263
+  ClientWidth = 530
   OnCreate = FormCreate
   Position = poScreenCenter
   LCLVersion = '2.3.0.0'
+  object PanelMain1: TPanel
+    Left = 0
+    Height = 263
+    Top = 0
+    Width = 266
+    Align = alLeft
+    Caption = 'PanelMain1'
+    TabOrder = 0
+  end
+  object PanelMain2: TPanel
+    Left = 266
+    Height = 263
+    Top = 0
+    Width = 264
+    Align = alClient
+    Caption = 'PanelMain2'
+    TabOrder = 1
+  end
 end

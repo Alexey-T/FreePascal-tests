@@ -5,7 +5,8 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls,
+  LMessages;
 
 type
   { TMyPanel }
@@ -14,7 +15,7 @@ type
   private
     FMouseDown: boolean;
     FMouseDownPnt: TPoint;
-    procedure UpdateCursor;
+    procedure UpdateCursor(AShift: TShiftState);
   public
     constructor Create(TheOwner: TComponent); override;
     procedure KeyDown(var Key: Word; Shift: TShiftState); override;
@@ -22,15 +23,21 @@ type
     procedure MouseDown(Button: TMouseButton; Shift: TShiftState; X, Y: Integer); override;
     procedure MouseUp(Button: TMouseButton; Shift: TShiftState; X, Y: Integer); override;
     procedure MouseMove(Shift: TShiftState; X, Y: Integer); override;
+    procedure DragOver(Source: TObject; X, Y: Integer; State: TDragState;
+      var Accept: Boolean); override;
+    procedure MouseEnter; override;
+    procedure MouseLeave; override;
   end;
 
 type
   { TForm1 }
 
   TForm1 = class(TForm)
+    PanelMain1: TPanel;
+    PanelMain2: TPanel;
     procedure FormCreate(Sender: TObject);
   private
-    FPanel: TMyPanel;
+    FPanel, FPanel2: TMyPanel;
 
   public
 
@@ -47,14 +54,20 @@ uses LCLIntf, LCLProc, LCLType;
 
 { TMyPanel }
 
-procedure TMyPanel.UpdateCursor;
+procedure TMyPanel.UpdateCursor(AShift: TShiftState);
+//var
+  //P: TPoint;
 begin
+  //P:= ScreenToClient(Mouse.CursorPos);
+  //if not PtInRect(ClientRect, P) then exit;
+
   if Mouse.IsDragging then
   begin
-    if ssCtrl in GetKeyShiftState then
-      Cursor:= crMultiDrag
+    if ssCtrl in AShift then
+      DragCursor:= crMultiDrag
     else
-      Cursor:= crDrag;
+      DragCursor:= crDrag;
+    Cursor:= DragCursor;
   end
   else
     Cursor:= crIBeam;
@@ -63,9 +76,9 @@ end;
 constructor TMyPanel.Create(TheOwner: TComponent);
 begin
   inherited Create(TheOwner);
-  DragMode:= dmManual;
   FMouseDownPnt:= Point(-1, -1);
   Cursor:= crIBeam;
+  DragMode:= dmManual; //to emulate code in ATSynEdit
 end;
 
 procedure TMyPanel.KeyDown(var Key: Word; Shift: TShiftState);
@@ -73,7 +86,7 @@ begin
   inherited;
   if (Key=VK_CONTROL) then
   begin
-    UpdateCursor;
+    UpdateCursor(Shift);
     Key:= 0;
   end;
 end;
@@ -81,9 +94,11 @@ end;
 procedure TMyPanel.KeyUp(var Key: Word; Shift: TShiftState);
 begin
   inherited;
+  if Mouse.IsDragging then
+    EndDrag(true);
   if (Key=VK_CONTROL) then
   begin
-    UpdateCursor;
+    UpdateCursor(Shift);
     Key:= 0;
   end;
 end;
@@ -102,7 +117,7 @@ begin
   inherited MouseUp(Button, Shift, X, Y);
   FMouseDownPnt:= Point(-1, -1);
   FMouseDown:= false;
-  UpdateCursor;
+  UpdateCursor(Shift);
 end;
 
 procedure TMyPanel.MouseMove(Shift: TShiftState; X, Y: Integer);
@@ -113,8 +128,29 @@ begin
     if Abs(X-FMouseDownPnt.X) + Abs(Y-FMouseDownPnt.Y)>=6 then
       if not Mouse.IsDragging then
         BeginDrag(true);
-    UpdateCursor;
+    UpdateCursor(Shift);
   end;
+end;
+
+procedure TMyPanel.DragOver(Source: TObject; X, Y: Integer; State: TDragState;
+  var Accept: Boolean);
+begin
+  if Source is TMyPanel then
+    Accept:= true
+  else
+    inherited DragOver(Source, X, Y, State, Accept);
+end;
+
+procedure TMyPanel.MouseEnter;
+begin
+  inherited;
+  Caption:= 'Mouse entered';
+end;
+
+procedure TMyPanel.MouseLeave;
+begin
+  inherited MouseLeave;
+  Caption:= '';
 end;
 
 { TForm1 }
@@ -122,11 +158,21 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   FPanel:= TMyPanel.Create(Self);
-  FPanel.Parent:= Self;
+  FPanel.Parent:= PanelMain1;
   FPanel.Color:= clMoneyGreen;
   FPanel.BorderSpacing.Around:= 12;
   FPanel.Align:= alClient;
+  FPanel.Width:= 200;
+  FPanel.Name:= 'PanelLeft';
   FPanel.Show;
+
+  FPanel2:= TMyPanel.Create(Self);
+  FPanel2.Parent:= PanelMain2;
+  FPanel2.Color:= clSkyBlue;
+  FPanel2.BorderSpacing.Around:= 12;
+  FPanel2.Align:= alClient;
+  FPanel2.Name:= 'PanelRight';
+  FPanel2.Show;
 end;
 
 end.
