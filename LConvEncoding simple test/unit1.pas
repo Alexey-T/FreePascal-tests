@@ -31,13 +31,15 @@ uses LConvEncoding;
 { TForm1 }
 
 procedure TForm1.FormCreate(Sender: TObject);
+const
+  enc = EncodingCPIso10;
 var
   sFrom, sTo: string;
 begin
   sFrom:= #$F1#$F2;
-  sTo:= ConvertEncoding(sFrom, EncodingCPIso10, EncodingUTF8);
+  sTo:= ConvertEncoding(sFrom, enc, EncodingUTF8);
   Caption:= sTo;
-  if sFrom<>ConvertEncoding(sTo, EncodingUTF8, EncodingCPIso10) then
+  if sFrom<>ConvertEncoding(sTo, EncodingUTF8, enc) then
     Caption:= 'error converting back';
 end;
 
