@@ -44,6 +44,7 @@ type
     procedure Paint; override;
     procedure DoEnter; override;
     procedure DoExit; override;
+    procedure Click; override;
   end;
 
 { TForm1 }
@@ -74,6 +75,7 @@ end;
 constructor TMy.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
+  TabStop:= true;
   FIsFocused:= false;
   FShowCaret:= true;
   FTimer:= TTimer.Create(Self);
@@ -117,6 +119,16 @@ begin
   inherited DoExit;
   FIsFocused:= false;
   Invalidate;
+end;
+
+procedure TMy.Click;
+begin
+  inherited Click;
+  if not FIsFocused then
+  begin
+    FIsFocused:= true;
+    Invalidate;
+  end;
 end;
 
 
