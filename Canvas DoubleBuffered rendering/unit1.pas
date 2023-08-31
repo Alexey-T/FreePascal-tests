@@ -49,6 +49,8 @@ begin
   C.Pen.Color:= clGreen;
   C.Pen.Width:= 1;
   C.Ellipse(200, 30, 250, 60);
+  C.Pen.Width:= 3;
+  C.Line(0, 200, 200, 220);
 end;
 
 procedure TForm1.CheckBoxBufferedChange(Sender: TObject);
@@ -68,7 +70,10 @@ begin
     FBitmap.SetSize(Panel1.Width, Panel1.Height);
     C:= FBitmap.Canvas;
     DoPictureTo(C);
-    R:= Rect(0, 0, Panel1.Width, Panel1.Height);
+    C.Font.Color:= clBlue;
+    C.Font.Size:= 8;
+    C.TextOut(5, 220, '(buffered)');
+    R:= Panel1.ClientRect;
     Panel1.Canvas.CopyRect(R, C, R);
   end
   else
