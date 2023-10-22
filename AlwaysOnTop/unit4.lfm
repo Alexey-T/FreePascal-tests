@@ -1,0 +1,9 @@
+object Form4: TForm4
+  Left = 1301
+  Height = 240
+  Top = 179
+  Width = 320
+  Caption = 'SystemStayOnTop'
+  FormStyle = fsSystemStayOnTop
+  LCLVersion = '3.99.0.0'
+end
