@@ -1,0 +1,98 @@
+object Form1: TForm1
+  Left = 383
+  Height = 248
+  Top = 118
+  Width = 595
+  Caption = 'TBevel looks with various BevelInner/BevelOuter'
+  ClientHeight = 248
+  ClientWidth = 595
+  Position = poScreenCenter
+  LCLVersion = '3.99.0.0'
+  object Panel1: TPanel
+    Left = 8
+    Height = 50
+    Top = 8
+    Width = 138
+    BevelOuter = bvNone
+    Caption = 'None/None'
+    Color = clMoneyGreen
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+  end
+  object Panel2: TPanel
+    Left = 8
+    Height = 50
+    Top = 64
+    Width = 138
+    Caption = 'None/Raised'
+    TabOrder = 1
+  end
+  object Panel3: TPanel
+    Left = 8
+    Height = 50
+    Top = 120
+    Width = 138
+    BevelOuter = bvLowered
+    Caption = 'None/Lowered'
+    TabOrder = 2
+  end
+  object Panel4: TPanel
+    Left = 152
+    Height = 50
+    Top = 64
+    Width = 138
+    BevelInner = bvRaised
+    BevelOuter = bvNone
+    Caption = 'Raised/None'
+    TabOrder = 3
+  end
+  object Panel5: TPanel
+    Left = 152
+    Height = 50
+    Top = 120
+    Width = 138
+    BevelInner = bvLowered
+    BevelOuter = bvNone
+    Caption = 'Lowered/None'
+    TabOrder = 4
+  end
+  object Panel6: TPanel
+    Left = 8
+    Height = 50
+    Top = 176
+    Width = 138
+    BevelInner = bvRaised
+    Caption = 'Raised/Raised'
+    TabOrder = 5
+  end
+  object Panel7: TPanel
+    Left = 152
+    Height = 50
+    Top = 176
+    Width = 138
+    BevelInner = bvLowered
+    BevelOuter = bvLowered
+    Caption = 'Lowered/Lowered'
+    TabOrder = 6
+  end
+  object Panel8: TPanel
+    Left = 296
+    Height = 50
+    Top = 176
+    Width = 138
+    BevelInner = bvRaised
+    BevelOuter = bvLowered
+    Caption = 'Raised/Lowered'
+    TabOrder = 7
+  end
+  object Panel9: TPanel
+    Left = 440
+    Height = 50
+    Top = 176
+    Width = 138
+    BevelInner = bvLowered
+    Caption = 'Lowered/Raised'
+    TabOrder = 8
+  end
+end
