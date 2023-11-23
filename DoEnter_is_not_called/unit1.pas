@@ -49,7 +49,6 @@ begin
   ControlStyle:= ControlStyle+[csOpaque, csDoubleClicks, csTripleClicks];
   TabStop:= true;
   BorderSpacing.Around:= 6;
-  Color:= clAqua;
 end;
 
 procedure TMy.DoEnter;
@@ -79,6 +78,7 @@ begin
   My1.Parent:= Self;
   My1.Align:= alLeft;
   My1.Width:= Width div 2 - 10;
+  My1.Color:= clAqua;
 
   My2:= TMy.Create(Self);
   My2.Name:= 'My2';
