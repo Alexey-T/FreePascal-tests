@@ -39,6 +39,7 @@ type
     procedure DoEnter; override;
     procedure DoExit; override;
     procedure Click; override;
+    procedure SetFocus; override;
   end;
 
 { TMy }
@@ -66,6 +67,11 @@ end;
 procedure TMy.Click;
 begin
   inherited Click;
+  Self.SetFocus;
+end;
+
+procedure TMy.SetFocus;
+begin
   LCLIntf.SetFocus(Handle);
 end;
 
