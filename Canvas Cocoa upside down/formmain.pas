@@ -15,12 +15,8 @@ type
     btnOpen: TButton;
     OpenDialog1: TOpenDialog;
     PanelOpt: TPanel;
-    procedure btnGotoClick(Sender: TObject);
     procedure btnOpenClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure bTextChange(Sender: TObject);
-    procedure bBinChange(Sender: TObject);
-    procedure bHexChange(Sender: TObject);
   private
     { private declarations }
     procedure OpenFile(const Filename: string);
@@ -59,43 +55,11 @@ begin
 
 end;
 
-procedure TfmMain.bTextChange(Sender: TObject);
-begin
-  V.Mode:= vbmodeText;
-end;
-
-procedure TfmMain.bBinChange(Sender: TObject);
-begin
-  V.Mode:= vbmodeBinary;
-end;
-
-procedure TfmMain.bHexChange(Sender: TObject);
-begin
-  V.Mode:= vbmodeHex;
-end;
-
 procedure TfmMain.btnOpenClick(Sender: TObject);
 begin
   with OpenDialog1 do
     if Execute then
       OpenFile(Filename);
-end;
-
-procedure TfmMain.btnGotoClick(Sender: TObject);
-var
-  S: string;
-  N: Int64;
-begin
-  S:= InputBox('Go to', 'Hex offset:', '0');
-  if S='' then Exit;
-  N:= StrToInt64Def('$'+S, -1);
-  if N<0 then exit;
-  if N>fs.Size-10 then
-  begin
-    ShowMessage('Too big pos, max is '+IntToStr(fs.Size));
-    Exit
-  end;
-  V.PosAt(N);
 end;
 
 procedure TfmMain.OpenFile(const Filename: string);
