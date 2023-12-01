@@ -1,0 +1,35 @@
+object fmMain: TfmMain
+  Left = 326
+  Height = 533
+  Top = 178
+  Width = 902
+  Caption = 'ATBinHex demo'
+  ClientHeight = 533
+  ClientWidth = 902
+  Position = poScreenCenter
+  LCLVersion = '3.99.0.0'
+  OnCreate = FormCreate
+  object PanelOpt: TPanel
+    Left = 708
+    Height = 533
+    Top = 0
+    Width = 194
+    Align = alRight
+    ClientHeight = 533
+    ClientWidth = 194
+    TabOrder = 0
+    object btnOpen: TButton
+      Left = 7
+      Height = 25
+      Top = 11
+      Width = 89
+      Caption = 'open...'
+      TabOrder = 0
+      OnClick = btnOpenClick
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Left = 480
+    Top = 16
+  end
+end
