@@ -1,0 +1,24 @@
+object Form1: TForm1
+  Left = 426
+  Height = 416
+  Top = 165
+  Width = 421
+  Caption = 'Form1'
+  ClientHeight = 416
+  ClientWidth = 421
+  LCLVersion = '4.99.0.0'
+  OnCreate = FormCreate
+  object Panel1: TPanel
+    Left = 8
+    Height = 400
+    Top = 8
+    Width = 408
+    BevelInner = bvLowered
+    Caption = 'Panel1'
+    Color = clMoneyGreen
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    OnPaint = Panel1Paint
+  end
+end
